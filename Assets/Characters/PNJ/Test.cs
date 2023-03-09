@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Test : MonoBehaviour
 {
     UnityEngine.AI.NavMeshAgent agent;
     private Vector3 targetPosition;
@@ -17,25 +17,20 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetTargetPosition();
         agent.SetDestination(new Vector3(targetPosition.x, targetPosition.y, transform.position.z));
 
     }
 
-    void SetTargetPosition()
+    void OnTriggerStay2D(Collider2D detection)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (detection.gameObject.tag == "Player")
         {
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetPosition = detection.transform.position;
         }
     }
-
 }
-
-
