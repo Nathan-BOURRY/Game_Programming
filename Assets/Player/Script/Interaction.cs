@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Interaction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    public string levelToLoad = "";
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.name != "Player"){
+            return;
+        }
+        
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
