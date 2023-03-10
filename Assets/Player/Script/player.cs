@@ -20,6 +20,7 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         controller = gameObject.AddComponent<CharacterController>();
         spr = GetComponent<SpriteRenderer>();
 
@@ -28,19 +29,23 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    
         velocity.x = movement.x*speed;
         velocity.y = movement.y*speed;
       
        
        
         if(movement.x != 0){
+                
             spr.flipX = movement.x < 0;
         }
         
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void OnMove(InputValue val){
+    public void OnMove(InputValue val){
+        
         movement = val.Get<Vector2>();
     }
  
