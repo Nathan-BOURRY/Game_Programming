@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -185431919676258616}
   m_Layer: 0
   m_Name: Balle
-  m_TagString: Untagged
+  m_TagString: balle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3223271288370461798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.58, y: 0.58, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,8 +98,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999994, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.74419296, y: 0.28373966, z: 0.2}
+  m_Center: {x: 0.00852699, y: 0.08526906, z: 0}
 --- !u!114 &814760631855286433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694eebced9217f44f9665fe52b16ef8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 18
   rb: {fileID: 0}
 --- !u!54 &-185431919676258616
 Rigidbody:

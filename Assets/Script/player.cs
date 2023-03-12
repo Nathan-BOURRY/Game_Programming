@@ -16,6 +16,8 @@ public class player : MonoBehaviour
 
     SpriteRenderer spr = null;
 
+     public AudioSource audio;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,7 @@ public class player : MonoBehaviour
                    Debug.Log("test = "+ collision.gameObject.tag);
         if(collision.gameObject.tag == "munition"){
             Destroy(collision.gameObject);
+              audio.Play();  
         }
         
     }
