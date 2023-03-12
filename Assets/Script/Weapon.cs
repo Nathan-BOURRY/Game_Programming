@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject Bullet;    
     public Transform Spawn;
+    public Transform Spawn2;
     public AudioSource audio;
 
     void Start()
@@ -24,11 +25,13 @@ public class Weapon : MonoBehaviour
         {
             audio.Play();  
             
-            //if(isLeft){
-            Instantiate(Bullet, Spawn.position, Quaternion.identity);
+            if(player.isLeft){
+                 Instantiate(Bullet, Spawn2.position, Quaternion.identity);
+            }else {
+                 Instantiate(Bullet, Spawn.position, Quaternion.identity);
             }
           
-            // }
+             }
              }
 
              

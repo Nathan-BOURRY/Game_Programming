@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
+    
     public float speed;
     public Rigidbody rb;
 
@@ -12,7 +14,19 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.right * speed;
+
+        if(player.isLeft){ 
+                gameObject.transform.localScale = new Vector3 (-1,(float)0.6,(float)0.6);
+              rb.velocity = -transform.right * speed;
+        }else {
+             gameObject.transform.localScale = new Vector3 (1,(float)0.6,(float)0.6);
+              rb.velocity = transform.right * speed;
+        }
+        //tirer dans l'autre sens
+        // rb.velocity = transform.up * speed;
+        // rb.velocity = -transform.right * speed;
+          // rb.velocity = - transform.up * speed;
+      
     }
 
     // Update is called once per frame
