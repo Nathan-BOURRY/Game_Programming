@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class player : MonoBehaviour
 {
 
-   
+    bool isLeft = false;
     private CharacterController controller = null;
     public float speed = 10.0f;
 
@@ -29,12 +29,18 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("direction left = "+ isLeft);
     
         velocity.x = movement.x*speed;
         velocity.y = movement.y*speed;
-      
-       
+
+       if(velocity.x < 0 ){
+         isLeft = true;
+       } 
+
+       if(velocity.x > 0 ){
+         isLeft = false;
+       } 
        
         if(movement.x != 0){
                 

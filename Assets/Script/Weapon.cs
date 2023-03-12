@@ -22,10 +22,12 @@ public class Weapon : MonoBehaviour
     {
          if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            
+            //todo
+            //if(isLeft){
             Instantiate(Bullet, Spawn.position, Quaternion.identity);
+            }
             audio.Play();  
-             }
+            // }
              }
 
              
