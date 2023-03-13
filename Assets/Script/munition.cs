@@ -23,7 +23,7 @@ public class munition : MonoBehaviour
 
     void OnCollisionEnter (Collision collision){
 
-          Debug.Log("test munition = "+ collision.gameObject.tag);
+     
         if(collision.gameObject.tag == "player"){
             Destroy(gameObject);
         }
