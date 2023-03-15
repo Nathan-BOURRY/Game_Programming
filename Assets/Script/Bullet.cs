@@ -20,4 +20,12 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, 3f);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "bordure")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
