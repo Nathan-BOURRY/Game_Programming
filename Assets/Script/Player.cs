@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class player : MonoBehaviour
+using UnityEngine.UI;
+using TMPro;
+public class Player : MonoBehaviour
 {
 
     public static bool isLeft = false;
     private CharacterController controller = null;
     public float speed = 10.0f;
+    
 
     Vector2 movement = Vector2.zero;
 
@@ -16,7 +18,11 @@ public class player : MonoBehaviour
 
     SpriteRenderer spr = null;
 
-     public AudioSource audio;
+    public int numberOfBullet;
+
+    public AudioSource audio;
+
+     int randomValue;
 
 
     // Start is called before the first frame update
@@ -64,6 +70,8 @@ public class player : MonoBehaviour
                    Debug.Log("test = "+ collision.gameObject.tag);
         if(collision.gameObject.tag == "munition"){
             Destroy(collision.gameObject);
+             randomValue = Random.Range(50, 101); 
+             numberOfBullet = numberOfBullet + randomValue;
               audio.Play();  
         }
         
