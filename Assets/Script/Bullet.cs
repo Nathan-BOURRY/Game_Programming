@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
+        
+
         if(Player.isLeft){ 
                 gameObject.transform.localScale = new Vector3 (-1,(float)0.6,(float)0.6);
               rb.velocity = -transform.right * speed;
@@ -40,6 +42,7 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter (Collision collision){
         if(collision.gameObject.tag == "bordure" ||collision.gameObject.tag == "munition"  ||collision.gameObject.tag == "droid" ){
             Destroy(gameObject);
+            //todo : animation du laser qui explose
         }
     }
 }

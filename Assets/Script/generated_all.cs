@@ -6,8 +6,9 @@ public class generated_all : MonoBehaviour
 {
 
        private TextMeshProUGUI textmeshPro;
-      
-       int nbBullet=0;
+      private TextMeshProUGUI textmeshProLife;
+       int nbBullet;
+       int life;
        Player player;
        
 
@@ -31,10 +32,9 @@ public class generated_all : MonoBehaviour
      
         textmeshPro = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
 
-           if (textmeshPro == null)
-    {
-        Debug.LogError("textmeshPro is null!");
-    }
+        textmeshProLife = GameObject.Find("life_text").GetComponent<TextMeshProUGUI>();
+
+      
        
         
     }
@@ -44,7 +44,11 @@ public class generated_all : MonoBehaviour
     {
         nbBullet = player.numberOfBullet;
 
+        life = player.life;
+
         textmeshPro.text ="" + nbBullet;
+
+          textmeshProLife.text ="" + life;
         
     }
 }
