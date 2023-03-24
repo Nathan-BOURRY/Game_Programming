@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class player : MonoBehaviour
+using UnityEngine.UI;
+using TMPro;
+public class Player : MonoBehaviour
 {
 
     public static bool isLeft = false;
@@ -15,7 +16,13 @@ public class player : MonoBehaviour
 
     SpriteRenderer spr = null;
 
+    public int numberOfBullet;
+
+    public int life = 100;
+
     public AudioSource audio;
+
+    int randomValue;
 
 
     // Start is called before the first frame update
@@ -68,9 +75,36 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "munition")
         {
             Destroy(collision.gameObject);
+            randomValue = Random.Range(20, 151);
+
+            //todo afficher +nbbullet sur le hud
+            if (numberOfBullet < 500)
+            {
+                numberOfBullet = numberOfBullet + randomValue;
+                if (numberOfBullet > 500)
+                {
+                    numberOfBullet = 500;
+                }
+            }
             audio.Play();
         }
 
+
+
+        if (life > 0)
+        {
+            //todo : faire pour des tirs de blaster
+            if (collision.gameObject.tag == "droid")
+            {
+                life = life - 10;
+            }
+        }
+        else
+        {
+            //TODO : you dead
+        }
+
     }
+}
 }
 
