@@ -32,7 +32,7 @@ public class generated_all : MonoBehaviour
      
         textmeshPro = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
 
-        textmeshProLife = GameObject.Find("life_text").GetComponent<TextMeshProUGUI>();
+       // textmeshProLife = GameObject.Find("life_text").GetComponent<TextMeshProUGUI>();
 
       
        
@@ -48,7 +48,7 @@ public class generated_all : MonoBehaviour
 
         textmeshPro.text ="" + nbBullet;
 
-          textmeshProLife.text ="" + life;
+          //textmeshProLife.text ="" + life;
         
     }
 }

@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     public GameObject Bullet;    
     public Transform Spawn;
     public Transform Spawn2;
+    public Transform SpawnUp;
+    public Transform SpawnDown;
     public AudioSource audio;
     public AudioSource audio2;
     int nbBullet;
@@ -45,6 +47,12 @@ public class Weapon : MonoBehaviour
                }else {
                     Instantiate(Bullet, Spawn.position, Quaternion.identity);
                }
+
+               if(Player.isUp){
+                                      Instantiate(Bullet, SpawnUp.position, Quaternion.identity);
+
+               }
+               
                
                
             } else {
