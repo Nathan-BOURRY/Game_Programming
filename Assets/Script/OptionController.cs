@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MenuController : MonoBehaviour
+public class OptionController : MonoBehaviour
 {
     public GameManager gameManager;
     public void Start()
@@ -15,8 +15,5 @@ public class MenuController : MonoBehaviour
        gameManager.ChangeScene(sceneName);
     }   
 
-    public void ExitGame()
-    {
-        gameManager.ExitGame();
-    }
+  
 }
