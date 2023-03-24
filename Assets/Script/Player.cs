@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
 
 
-    void OnControllerColliderHit2D(ControllerColliderHit collision)
+    void OnControllerColliderHit(ControllerColliderHit collision)
     {
         Debug.Log("test = " + collision.gameObject.tag);
         if (collision.gameObject.tag == "munition")
@@ -105,6 +105,5 @@ public class Player : MonoBehaviour
         }
 
     }
-}
 }
 
