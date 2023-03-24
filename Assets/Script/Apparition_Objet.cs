@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Apparition_Objet : MonoBehaviour
 {
-   public GameObject objet;
-   
+    public GameObject objet;
 
-    void OnTriggerEnter(Collider other){
-        Instantiate(objet, transform.position, transform.rotation);
-}
+
+    //     void OnTriggerEnter2D(Collider other){
+    //         Instantiate(objet, transform.position, transform.rotation);
+    // }
 }

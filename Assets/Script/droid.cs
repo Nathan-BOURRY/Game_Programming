@@ -5,25 +5,25 @@ using UnityEngine;
 public class droid : MonoBehaviour
 {
 
-     public Rigidbody rb;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
 
-    void OnCollisionEnter (Collision collision){
-
-         
-        if(collision.gameObject.tag == "balle"){
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "balle")
+        {
             Destroy(gameObject);
         }
     }

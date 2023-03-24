@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Test : MonoBehaviour
 {
-    UnityEngine.AI.NavMeshAgent agent;
+    NavMeshAgent agent;
     private Vector3 targetPosition;
 
     void Awake()
     {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -17,6 +18,7 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        targetPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -28,8 +30,10 @@ public class Test : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D detection)
     {
-        if (detection.gameObject.tag == "Player")
+        Debug.Log(detection.gameObject.tag);
+        if (detection.gameObject.tag == "player")
         {
+            Debug.Log("YEESSSS");
             targetPosition = detection.transform.position;
         }
     }
