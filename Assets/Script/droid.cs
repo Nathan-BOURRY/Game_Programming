@@ -8,6 +8,8 @@ public class droid : MonoBehaviour
     NavMeshAgent agent;
     private Vector3 targetPosition;
 
+
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,7 +27,14 @@ public class droid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(new Vector3(targetPosition.x, targetPosition.y, transform.position.z));
+        if (noWalkZone.walk)
+        {
+            agent.SetDestination(new Vector3(targetPosition.x, targetPosition.y, transform.position.z));
+        }
+        else
+        {
+            agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        }
     }
 
     void OnTriggerStay2D(Collider2D detection)

@@ -51,7 +51,7 @@ public class Weapon : MonoBehaviour
                 }
                 if (Player.isUp)
                 {
-                    Instantiate(Bullet, SpawnUp.position, Quaternion.identity);
+                    //Instantiate(Bullet, SpawnUp.position, Quaternion.identity);
 
                 }
             }
@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour
             {
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
-                audio2.Play();
+                //audio2.Play();
             }
         }
     }

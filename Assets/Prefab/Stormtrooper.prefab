@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &131268976966116770
+--- !u!1 &2829039333870566067
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,104 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 131268976966116825}
-  - component: {fileID: 131268976966116830}
-  - component: {fileID: 131268976966116831}
-  - component: {fileID: 131268976966116828}
-  - component: {fileID: 131268976966116827}
-  - component: {fileID: 131268976966116824}
-  - component: {fileID: 4030580987921642892}
+  - component: {fileID: 2829039333870566064}
+  - component: {fileID: 2829039333870566070}
+  - component: {fileID: 2829039333870566065}
   m_Layer: 0
-  m_Name: Stormtrooper 1
-  m_TagString: droid
+  m_Name: noWalkZone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &131268976966116825
+--- !u!4 &2829039333870566064
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039333870566067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.04, y: 0.62, z: -0.095651805}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2829039334684933698}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2829039333870566070
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829039333870566067}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.314801, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.326352
+--- !u!114 &2829039333870566065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829039333870566067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4602a3633e1aeaf439efdecc24c8f5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2829039334684933691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2829039334684933698}
+  - component: {fileID: 2829039334684933693}
+  - component: {fileID: 2829039334684933692}
+  - component: {fileID: 2829039334684933695}
+  - component: {fileID: 2829039334684933694}
+  - component: {fileID: 2829039334684933689}
+  - component: {fileID: 2829039334684933688}
+  m_Layer: 0
+  m_Name: Stormtrooper
+  m_TagString: droid
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2829039334684933698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829039334684933691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.8464174, y: -2.6085382, z: -0.095651805}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2829039333870566064}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &131268976966116830
+--- !u!212 &2829039334684933693
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039334684933691}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,13 +151,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!195 &131268976966116831
+--- !u!195 &2829039334684933692
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039334684933691}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.12
@@ -111,29 +173,29 @@ NavMeshAgent:
   m_BaseOffset: 0.25
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!58 &131268976966116828
+--- !u!58 &2829039334684933695
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039334684933691}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8983551, y: 0}
+  m_Offset: {x: -1.552132, y: 0}
   serializedVersion: 2
-  m_Radius: 1.0947952
---- !u!61 &131268976966116827
+  m_Radius: 2.754377
+--- !u!61 &2829039334684933694
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039334684933691}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -153,14 +215,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.5}
   m_EdgeRadius: 0
---- !u!50 &131268976966116824
+--- !u!50 &2829039334684933689
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039334684933691}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -174,13 +236,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &4030580987921642892
+--- !u!114 &2829039334684933688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131268976966116770}
+  m_GameObject: {fileID: 2829039334684933691}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5de0180af38f6db40a907352e6c0228c, type: 3}

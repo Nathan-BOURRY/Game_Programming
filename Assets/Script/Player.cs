@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
 
 
-    void OnControllerColliderHit(ControllerColliderHit collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("test = " + collision.gameObject.tag);
         if (collision.gameObject.tag == "munition")
