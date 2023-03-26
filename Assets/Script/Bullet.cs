@@ -54,6 +54,14 @@ public class Bullet : MonoBehaviour
             //todo : animation du laser qui explose
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "bordure")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
 
 
