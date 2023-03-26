@@ -8,11 +8,8 @@ public class Player : MonoBehaviour
 {
 
     public static bool isLeft = false;
-<<<<<<< HEAD
     public static bool isUp = false;
     private CharacterController controller = null;
-=======
->>>>>>> Dev_Nathan
     public float speed = 10.0f;
     Rigidbody2D rbody = null;
     Vector2 movement = Vector2.zero;
@@ -45,7 +42,6 @@ public class Player : MonoBehaviour
         velocity.x = movement.x * speed;
         velocity.y = movement.y * speed;
 
-<<<<<<< HEAD
 
         if(velocity.y < 0 ){
            // Debug.Log("isUp = " + isUp);
@@ -59,8 +55,6 @@ public class Player : MonoBehaviour
        if(velocity.x < 0 ){
          isLeft = true;
        } 
-=======
->>>>>>> Dev_Nathan
 
         if (velocity.x < 0)
         {
