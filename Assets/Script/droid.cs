@@ -30,10 +30,8 @@ public class droid : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D detection)
     {
-        Debug.Log(detection.gameObject.tag);
         if (detection.gameObject.tag == "player")
         {
-            Debug.Log("YEESSSS");
             targetPosition = detection.transform.position;
         }
     }
