@@ -15,20 +15,20 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        
 
-       /* if(Player.isLeft){ 
-                gameObject.transform.localScale = new Vector3 (-1,(float)0.6,(float)0.6);
-              rb.velocity = -transform.right * speed;
-        }else {
-             gameObject.transform.localScale = new Vector3 (1,(float)0.6,(float)0.6);
-              rb.velocity = transform.right * speed;
-        }
 
-        if(Player.isUp){
-            gameObject.transform.localScale = new Vector3 (-1,(float)-0.6,(float)0.6);
-                  rb.velocity = transform.up * speed;
-        }*/
+        /* if(Player.isLeft){ 
+                 gameObject.transform.localScale = new Vector3 (-1,(float)0.6,(float)0.6);
+               rb.velocity = -transform.right * speed;
+         }else {
+              gameObject.transform.localScale = new Vector3 (1,(float)0.6,(float)0.6);
+               rb.velocity = transform.right * speed;
+         }
+
+         if(Player.isUp){
+             gameObject.transform.localScale = new Vector3 (-1,(float)-0.6,(float)0.6);
+                   rb.velocity = transform.up * speed;
+         }*/
 
         rb.velocity = Vector2.right * speed;
         //tirer dans l'autre sens
