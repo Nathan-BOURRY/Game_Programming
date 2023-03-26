@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Destruction_Object : MonoBehaviour
 {
-  private void OnTriggerExit(Collider collider)
-  {
-   
-    Destroy(gameObject);
-  }
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+
+        Destroy(gameObject);
+    }
 }
