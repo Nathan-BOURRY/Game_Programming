@@ -6,7 +6,7 @@ public class ScriptLight : MonoBehaviour
 {
     public UnityEngine.Rendering.Universal.Light2D light2D;
         float startRadius = 0.1f;
-        float endRadius = 1f;
+        float endRadius = 0.7f;
         bool isLight = false;
       
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class ScriptLight : MonoBehaviour
     void Update()
     {
             
-            if(!isLight){
+           /* if(!isLight){
                 
                 Invoke("plusRadius", 1f);
                
@@ -29,11 +29,13 @@ public class ScriptLight : MonoBehaviour
                  Invoke("minusRadius", 1f);
             }
 
-            if(light2D.pointLightOuterRadius >= 0.5){
+            if(light2D.pointLightOuterRadius >= endRadius){
                 isLight = true;
-            } else if(light2D.pointLightOuterRadius <= 0.1) {
+            } else if(light2D.pointLightOuterRadius <= startRadius) {
                 isLight = false;
-            }
+            }*/
+            float t = Mathf.Sin(Time.time * 0.5f * Mathf.PI);
+           light2D.pointLightOuterRadius = startRadius * (5.0f + t);
             
 
     
