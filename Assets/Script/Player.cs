@@ -35,8 +35,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity.x = movement.x * speed;
-        velocity.y = movement.y * speed;
+        velocity = movement * speed;
 
         if (movement.x != 0)
         {
