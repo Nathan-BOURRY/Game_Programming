@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,14 @@ public class Weapon : MonoBehaviour
 {
     public GameObject Bullet;
     public Transform Spawn;
-    public Transform Spawn2;
-    //public Transform SpawnUp;
-    //public Transform SpawnDown;
     public AudioSource audio;
     public AudioSource audio2;
     int nbBullet;
     Player player;
+
+    float rotation;
+    GameObject instanBullet;
+    public Vector2 playerMovement;
 
 
 
@@ -35,31 +37,33 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if (Gamepad.current.xButton.wasPressedThisFrame)
+        // {
+        //     Debug.Log("YES");
+        // }
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             if (player.numberOfBullet > 0)
             {
                 audio.Play();
                 player.numberOfBullet = player.numberOfBullet - 1;
-                if (Player.isLeft)
+                rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 90;
+                if (rotation == 180)
                 {
-                    Instantiate(Bullet, Spawn2.position, Quaternion.identity);
+                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x - 0.8f, Spawn.position.y), Quaternion.Euler(0, 0, rotation));
                 }
                 else
                 {
-                    Instantiate(Bullet, Spawn.position, Quaternion.identity);
+                    instanBullet = Instantiate(Bullet, Spawn.position, Quaternion.Euler(0, 0, rotation));
                 }
-                if (Player.isUp)
-                {
-                   // Instantiate(Bullet, SpawnUp.position, Quaternion.identity);
+                instanBullet.GetComponent<Bullet>().mouvement = playerMovement;
 
-                }
             }
             else
             {
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
-                audio2.Play();
+                //audio2.Play();
             }
         }
     }

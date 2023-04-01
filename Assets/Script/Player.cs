@@ -7,11 +7,9 @@ using TMPro;
 public class Player : MonoBehaviour
 {
 
-    public static bool isLeft = false;
-    public static bool isUp = false;
     public float speed = 10.0f;
     Rigidbody2D rbody = null;
-    Vector2 movement = Vector2.zero;
+    public Vector2 movement = Vector2.zero;
 
     Vector2 velocity = Vector2.zero;
 
@@ -37,40 +35,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("direction left = "+ isLeft);
-        velocity.x = movement.x * speed;
-        velocity.y = movement.y * speed;
-
-
-        if (velocity.y < 0)
-        {
-            // Debug.Log("isUp = " + isUp);
-            isUp = false;
-        }
-
-        if (velocity.y > 0)
-        {
-            isUp = true;
-        }
-
-        if (velocity.x < 0)
-        {
-            isLeft = true;
-        }
-
-        if (velocity.x < 0)
-        {
-            isLeft = true;
-        }
-
-        if (velocity.x > 0)
-        {
-            isLeft = false;
-        }
+        velocity = movement * speed;
 
         if (movement.x != 0)
         {
-
             spr.flipX = movement.x < 0;
         }
 
@@ -79,14 +47,18 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputValue val)
     {
-
         movement = val.Get<Vector2>();
+        if (movement != Vector2.zero)
+        {
+            //TODO Ajout de l'audio de déplacement ;)
+            GetComponent<Weapon>().playerMovement = movement;
+        }
     }
 
 
 
 
-    void OnControllerColliderHit(ControllerColliderHit collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("test = " + collision.gameObject.tag);
         if (collision.gameObject.tag == "munition")

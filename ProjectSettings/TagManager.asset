@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - droid
-  - player
-  - balle
   - munition
+  - droid
+  - balle
+  - player
   - bordure
   layers:
   - Default

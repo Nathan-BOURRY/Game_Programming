@@ -5,36 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-
+    public Vector2 mouvement;
     public float speed;
-    public Rigidbody2D rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
 
-
-
-        /* if(Player.isLeft){ 
-                 gameObject.transform.localScale = new Vector3 (-1,(float)0.6,(float)0.6);
-               rb.velocity = -transform.right * speed;
-         }else {
-              gameObject.transform.localScale = new Vector3 (1,(float)0.6,(float)0.6);
-               rb.velocity = transform.right * speed;
-         }
-
-         if(Player.isUp){
-             gameObject.transform.localScale = new Vector3 (-1,(float)-0.6,(float)0.6);
-                   rb.velocity = transform.up * speed;
-         }*/
-
-        rb.velocity = Vector2.right * speed;
-        //tirer dans l'autre sens
-        // rb.velocity = transform.up * speed;
-        // rb.velocity = -transform.right * speed;
-        // rb.velocity = - transform.up * speed;
+        GetComponent<Rigidbody2D>().velocity = mouvement * speed;
 
     }
 
@@ -55,7 +34,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-   
+
 }
 
 
