@@ -46,7 +46,7 @@ public class generated_all : MonoBehaviour
 
         life = player.life;
 
-        textmeshPro.text ="" + nbBullet;
+        textmeshPro.text ="" + nbBullet + " mun";
 
           //textmeshProLife.text ="" + life;
         

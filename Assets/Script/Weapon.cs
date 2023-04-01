@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
             {
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
-                //audio2.Play();
+                audio2.Play();
             }
         }
     }
