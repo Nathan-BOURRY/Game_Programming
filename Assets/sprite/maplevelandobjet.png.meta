@@ -747,7 +747,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_30
+      name: vaisseau1
       rect:
         serializedVersion: 2
         x: 14
@@ -768,7 +768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_31
+      name: vaisseau2
       rect:
         serializedVersion: 2
         x: 51
@@ -789,7 +789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_32
+      name: vaisseau3
       rect:
         serializedVersion: 2
         x: 87
@@ -810,7 +810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_33
+      name: vaisseau4
       rect:
         serializedVersion: 2
         x: 123
@@ -1041,7 +1041,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_44
+      name: vaisseau5
       rect:
         serializedVersion: 2
         x: 14
@@ -1062,7 +1062,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_45
+      name: vaisseau6
       rect:
         serializedVersion: 2
         x: 50
@@ -1083,7 +1083,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_46
+      name: vaisseau7
       rect:
         serializedVersion: 2
         x: 86
@@ -1104,7 +1104,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_47
+      name: vaisseau8
       rect:
         serializedVersion: 2
         x: 122
@@ -1293,7 +1293,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_56
+      name: vaisseau9
       rect:
         serializedVersion: 2
         x: 14
@@ -1314,7 +1314,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maplevelandobjet_57
+      name: vaisseau10
       rect:
         serializedVersion: 2
         x: 50
@@ -1558,10 +1558,6 @@ TextureImporter:
       maplevelandobjet_28: 1877688637
       maplevelandobjet_29: -167302025
       maplevelandobjet_3: 1454886652
-      maplevelandobjet_30: 1865208672
-      maplevelandobjet_31: 467049305
-      maplevelandobjet_32: 1722801736
-      maplevelandobjet_33: 1783153622
       maplevelandobjet_34: 312833283
       maplevelandobjet_35: -605319428
       maplevelandobjet_36: 357338309
@@ -1573,10 +1569,6 @@ TextureImporter:
       maplevelandobjet_41: 1820980108
       maplevelandobjet_42: 798994977
       maplevelandobjet_43: -349465983
-      maplevelandobjet_44: -571607944
-      maplevelandobjet_45: 589380774
-      maplevelandobjet_46: -779343517
-      maplevelandobjet_47: -2043221161
       maplevelandobjet_48: 1543800337
       maplevelandobjet_49: 2012935718
       maplevelandobjet_5: -1990431562
@@ -1586,8 +1578,6 @@ TextureImporter:
       maplevelandobjet_53: -726013978
       maplevelandobjet_54: 1354034496
       maplevelandobjet_55: 680844502
-      maplevelandobjet_56: -300177797
-      maplevelandobjet_57: 2098541521
       maplevelandobjet_58: 625214350
       maplevelandobjet_59: -153556597
       maplevelandobjet_6: -898732081
@@ -1601,6 +1591,16 @@ TextureImporter:
       maplevelandobjet_7: -903112865
       maplevelandobjet_8: -1748190542
       maplevelandobjet_9: -2106760935
+      vaisseau1: 1865208672
+      vaisseau10: 2098541521
+      vaisseau2: 467049305
+      vaisseau3: 1722801736
+      vaisseau4: 1783153622
+      vaisseau5: -571607944
+      vaisseau6: 589380774
+      vaisseau7: -779343517
+      vaisseau8: -2043221161
+      vaisseau9: -300177797
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

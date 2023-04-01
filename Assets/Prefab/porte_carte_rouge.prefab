@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8716686402483062916}
   - component: {fileID: 8716686402483062920}
   m_Layer: 0
-  m_Name: porteHaut_0
+  m_Name: porte_carte_rouge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
