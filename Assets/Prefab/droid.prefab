@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &2376980046897188037
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,7 +110,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &2376980046897188036
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -208,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de0180af38f6db40a907352e6c0228c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 116395710715558952, guid: 5fed172ade299a841a69352fde351d2d, type: 3}
+  Bullet: {fileID: 8358095489824072059, guid: 7bb27ead63a691e4c8b1de5f592e8129, type: 3}
 --- !u!1 &2376980047527102701
 GameObject:
   m_ObjectHideFlags: 0
