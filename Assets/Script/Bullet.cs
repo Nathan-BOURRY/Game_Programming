@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "bordure" || collision.gameObject.tag == "munition" || collision.gameObject.tag == "droid")
+        if (collision.gameObject.tag == "bordure" || collision.gameObject.tag == "munition" || collision.gameObject.tag == "droid" || collision.gameObject.tag == "player")
         {
             Destroy(gameObject);
             //todo : animation du laser qui explose

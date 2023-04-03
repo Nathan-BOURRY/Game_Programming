@@ -248,3 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de0180af38f6db40a907352e6c0228c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 2307180954607625862, guid: 5fed172ade299a841a69352fde351d2d, type: 3}
+  Bullet: {fileID: 3223271288370461798, guid: 7bb27ead63a691e4c8b1de5f592e8129, type: 3}

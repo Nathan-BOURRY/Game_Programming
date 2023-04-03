@@ -7,8 +7,13 @@ public class droid : MonoBehaviour
 {
     NavMeshAgent agent;
     private Vector3 targetPosition;
+    GameObject instanBullet;
 
+    public GameObject Player;
+    public GameObject Bullet;
+    float rotation;
 
+    private Vector2 bulletDirection;
 
     void Awake()
     {
@@ -34,6 +39,7 @@ public class droid : MonoBehaviour
         else
         {
             agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+
         }
     }
 
@@ -42,6 +48,33 @@ public class droid : MonoBehaviour
         if (detection.gameObject.tag == "player")
         {
             targetPosition = detection.transform.position;
+            if (instanBullet == null)
+            {
+                //rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 180;
+                bulletDirection = new Vector2((Player.transform.position.x - transform.position.x), (Player.transform.position.y - transform.position.y));
+                bulletDirection.Normalize();
+                rotation = Mathf.Rad2Deg * Mathf.Atan2(-bulletDirection.x, bulletDirection.y) + 90;
+                //TODO : Fix Spawn bullet with animation
+                if (rotation >= 45 && rotation <= 135) // En haut
+                {
+                    instanBullet = Instantiate(Bullet, new Vector2(transform.position.x, transform.position.y + 1.5f), Quaternion.Euler(0, 0, rotation));
+                }
+                else if (rotation > 135 && rotation <= 225) //A gauche
+                {
+                    instanBullet = Instantiate(Bullet, new Vector2(transform.position.x - 1.5f, transform.position.y), Quaternion.Euler(0, 0, rotation));
+                }
+                else if (rotation > 225 && rotation < 315)
+                {
+                    instanBullet = Instantiate(Bullet, new Vector2(transform.position.x, transform.position.y - 1.5f), Quaternion.Euler(0, 0, rotation));
+                }
+                else //Droite
+                {
+                    instanBullet = Instantiate(Bullet, new Vector2(transform.position.x + 1.5f, transform.position.y), Quaternion.Euler(0, 0, rotation));
+                }
+
+                instanBullet.GetComponent<Bullet>().speed = 8;
+                instanBullet.GetComponent<Bullet>().mouvement = bulletDirection;
+            }
         }
     }
 
