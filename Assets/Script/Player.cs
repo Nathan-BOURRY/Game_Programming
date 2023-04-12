@@ -17,6 +17,18 @@ public class Player : MonoBehaviour
 
     public int numberOfBullet;
 
+    public bool hasScanKey= false;
+    public bool hasScanGreenKey= false;
+     public bool hasScanBlueKey= false;
+
+    public bool hasRedKey = false;
+    public bool hasGreenKey = false;
+    public bool hasBlueKey = false;
+
+    DoorAction doorAction;
+
+ 
+
     public int life = 100;
 
     public AudioSource audio;
@@ -29,12 +41,16 @@ public class Player : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
+         doorAction = FindObjectOfType<DoorAction>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+    
+        
         velocity = movement * speed;
 
         if (movement.x != 0)
@@ -60,7 +76,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("test = " + collision.gameObject.tag);
+        //Debug.Log("test = " + collision.gameObject.tag);
         if (collision.gameObject.tag == "munition")
         {
             Destroy(collision.gameObject);
@@ -76,6 +92,39 @@ public class Player : MonoBehaviour
                 }
             }
             audio.Play();
+        } 
+        
+        else if (collision.gameObject.tag == "terminal")
+        {
+            if(hasRedKey){
+                
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    Debug.Log("test");
+                    hasScanKey = true;
+                
+             }
+            }
+            
+        }else if (collision.gameObject.tag == "terminalGreen")
+        {
+            if(hasGreenKey){
+                
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    Debug.Log("test");
+                    hasScanGreenKey = true;
+                
+             }
+            }
+        }else if (collision.gameObject.tag == "terminalBlue")
+        {
+            if(hasBlueKey){
+                
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    Debug.Log("test");
+                    hasScanBlueKey = true;
+                
+             }
+            }
         }
 
 

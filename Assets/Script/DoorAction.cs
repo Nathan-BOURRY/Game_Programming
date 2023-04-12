@@ -1,37 +1,123 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DoorAction : MonoBehaviour
 {
 
     Animator animator;
-    int compteur;
+    int compteur=0;
+    Player player;
+    TextMeshProUGUI textmeshPro;
+    private float timer = 5f;
+    bool hasRedKey = false;
+    public bool hasScanKey = false;
+    bool hasBlueKey = false;
+    public bool hasScanBlueKey = false;
+    bool hasGreenKey = false;
+    public bool hasScanGreenKey = false;
 
      
     // Start is called before the first frame update
     void Start()
     {
           animator = GetComponent<Animator>();
+          player = FindObjectOfType<Player>();
+          textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
+           textmeshPro.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(compteur);
-        Debug.Log(animator.GetBool("needToOpen"));
+        hasRedKey = player.hasRedKey;
+        hasScanKey = player.hasScanKey;
+        hasBlueKey = player.hasBlueKey;
+        hasScanBlueKey = player.hasScanBlueKey;
+        hasGreenKey = player.hasGreenKey;
+        hasScanGreenKey = player.hasScanGreenKey;
+
+        
+       
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-           
+    
         //todo : 
-        if (other.gameObject.tag == "player" || other.gameObject.tag == "droid")
+        if (other.gameObject.tag == "player")
         {
             compteur ++;
-            if(compteur == 1){
-            animator.SetBool("needToOpen", true);
-            }
+
+            if(gameObject.tag == "redKey"){
+       
+      
+                if(hasRedKey && hasScanKey){
+                    
+                
+                    if(compteur == 1){
+                        
+                    animator.SetBool("needToOpen", true);
+                    
+                    }
+                } else if (hasRedKey){
+
+                    textmeshPro.text ="Scan the red key on the terminal !";
+                    textmeshPro.enabled = true;
+
+                } else {
+
+                    
+                
+                    //Debug.Log("n'a pas la clé");
+                    textmeshPro.text ="You need the red Key !";
+                    textmeshPro.enabled = true;
+
+                }
+            }else if(gameObject.tag == "greenKey"){
+                if(hasGreenKey && hasScanGreenKey){
+                    if(compteur == 1){
+                    animator.SetBool("needToOpen", true);
+                    }
+                } else if (hasGreenKey){
+
+                    textmeshPro.text ="Scan the green key on the terminal !";
+                    textmeshPro.enabled = true;
+
+                } else {
+
+                    //Debug.Log("n'a pas la clé");
+                    textmeshPro.text ="You need the green Key !";
+                    textmeshPro.enabled = true;
+                }
+
+                }else if(gameObject.tag == "blueKey"){
+                if(hasBlueKey && hasScanBlueKey){
+                    if(compteur == 1){
+                    animator.SetBool("needToOpen", true);
+                    }
+                } else if (hasBlueKey){
+
+                    textmeshPro.text ="Scan the blue key on the terminal !";
+                    textmeshPro.enabled = true;
+
+                } else {
+
+                    //Debug.Log("n'a pas la clé");
+                    textmeshPro.text ="You need the blue Key !";
+                    textmeshPro.enabled = true;
+
+                }
+                }
+                
+        } else if (other.gameObject.tag == "droid"){
+                
+                compteur ++;
+                if(compteur == 1){
+                animator.SetBool("needToOpen", true);
+                
+                }
         }
     }
 
@@ -41,9 +127,14 @@ public class DoorAction : MonoBehaviour
         if (other.gameObject.tag == "player" || other.gameObject.tag == "droid")
         {
 
+            textmeshPro.enabled = false;
+
             compteur --;
+                
+    
             if(compteur == 0){
                 animator.SetBool("needToOpen", false);
+             
             }
         }
     }
