@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public int numberOfBullet;
 
-    public int life = 100;
+    public int life;
 
     public AudioSource audio;
 
@@ -55,7 +55,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (life > 0)
+        {
+            //todo : faire pour des tirs de blaster
+            if (collision.gameObject.tag == "balle")
+            {
+                life = life - 10;
+            }
 
+        }
+        else
+        {
+            //TODO ANIMATION DE MORT !
+
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -77,20 +93,6 @@ public class Player : MonoBehaviour
             audio.Play();
         }
 
-
-
-        if (life > 0)
-        {
-            //todo : faire pour des tirs de blaster
-            if (collision.gameObject.tag == "droid")
-            {
-                life = life - 10;
-            }
-        }
-        else
-        {
-            //TODO : you dead
-        }
 
     }
 }
