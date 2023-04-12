@@ -12,6 +12,7 @@ public class droid : MonoBehaviour
     public GameObject Player;
     public GameObject Bullet;
     float rotation;
+    bool readyShoot;
 
     private Vector2 bulletDirection;
 
@@ -27,6 +28,7 @@ public class droid : MonoBehaviour
     void Start()
     {
         targetPosition = transform.position;
+        readyShoot = true;
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class droid : MonoBehaviour
         if (detection.gameObject.tag == "player")
         {
             targetPosition = detection.transform.position;
-            if (instanBullet == null)
+            if (readyShoot)
             {
                 //rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 180;
                 bulletDirection = new Vector2((Player.transform.position.x - transform.position.x), (Player.transform.position.y - transform.position.y));
@@ -74,6 +76,7 @@ public class droid : MonoBehaviour
 
                 instanBullet.GetComponent<Bullet>().speed = 8;
                 instanBullet.GetComponent<Bullet>().mouvement = bulletDirection;
+                StartCoroutine(CouldownWeapon(2));
             }
         }
     }
@@ -85,4 +88,15 @@ public class droid : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    IEnumerator CouldownWeapon(int temps)
+    {
+
+        //Execution du code
+        readyShoot = false;
+        yield return new WaitForSeconds(temps);
+        //Code à effectué après le temps d'att
+        readyShoot = true;
+
+    }
 }
+
