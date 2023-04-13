@@ -37,13 +37,13 @@ public class generated_all : MonoBehaviour
         card = FindObjectOfType<card>();
 >>>>>>> origin/DEV_Mélaine
 
-        player = FindObjectOfType<Player>();
+         player = FindObjectOfType<Player>();
         if (player == null)
         {
             Debug.LogError("player is null!");
         }
 
-
+        
         // Accède à la variable "nbBullet" à partir de l'objet "player"
 
 <<<<<<< HEAD
@@ -54,7 +54,7 @@ public class generated_all : MonoBehaviour
      
         textmeshPro2 = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
 >>>>>>> origin/DEV_Mélaine
-
+        
     }
 
     // Update is called once per frame
@@ -69,7 +69,7 @@ public class generated_all : MonoBehaviour
 =======
         textmeshPro2.text ="" + nbBullet + " mun";
 >>>>>>> origin/DEV_Mélaine
-
+        
     }
 
    public IEnumerator EnableTextMesh(GameObject cardObject)
