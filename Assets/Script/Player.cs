@@ -17,11 +17,30 @@ public class Player : MonoBehaviour
 
     public int numberOfBullet;
 
+<<<<<<< HEAD
     public int life;
+=======
+    public bool hasScanKey= false;
+    public bool hasScanGreenKey= false;
+     public bool hasScanBlueKey= false;
+
+    public bool hasRedKey = false;
+    public bool hasGreenKey = false;
+    public bool hasBlueKey = false;
+
+    DoorAction doorAction;
+
+ 
+
+    public int life = 100;
+>>>>>>> origin/DEV_Mélaine
 
     public AudioSource audio;
 
     int randomValue;
+
+    card card;
+    generated_all generated_all;
 
 
     // Start is called before the first frame update
@@ -29,12 +48,18 @@ public class Player : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
+        doorAction = FindObjectOfType<DoorAction>();
+        card = FindObjectOfType<card>();
+        generated_all = FindObjectOfType<generated_all>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+    
+        
         velocity = movement * speed;
 
         if (movement.x != 0)
@@ -75,7 +100,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("test = " + collision.gameObject.tag);
+        //Debug.Log("test = " + collision.gameObject.tag);
         if (collision.gameObject.tag == "munition")
         {
             Destroy(collision.gameObject);
@@ -91,7 +116,48 @@ public class Player : MonoBehaviour
                 }
             }
             audio.Play();
+        } 
+        
+        else if (collision.gameObject.tag == "terminal")
+        {
+            if(hasRedKey){
+                
+               // if (Input.GetKeyDown(KeyCode.E)) {
+                    //Debug.Log("test");
+                    hasScanKey = true;
+                
+            // }
+            }
+            
+        }else if (collision.gameObject.tag == "terminalGreen")
+        {
+            if(hasGreenKey){
+                
+               // if (Input.GetKeyDown(KeyCode.E)) {
+                    //Debug.Log("test");
+                    hasScanGreenKey = true;
+                
+             //}
+            }
+        }else if (collision.gameObject.tag == "terminalBlue")
+        {
+            if(hasBlueKey){
+                
+               // if (Input.GetKeyDown(KeyCode.E)) {
+                   // Debug.Log("test");
+                    hasScanBlueKey = true;
+                
+            // }
+            }
+        }else if (collision.gameObject.name == "redCard" || collision.gameObject.name == "blueCard" || collision.gameObject.name == "greenCard")
+        {
+            
+            StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
+             Destroy(collision.gameObject);
+    
+
         }
+    
 
 
     }

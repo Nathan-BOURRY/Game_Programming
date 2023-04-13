@@ -9,6 +9,12 @@ TagManager:
   - balle
   - player
   - bordure
+  - terminal
+  - greenKey
+  - redKey
+  - blueKey
+  - terminalGreen
+  - terminalBlue
   layers:
   - Default
   - TransparentFX

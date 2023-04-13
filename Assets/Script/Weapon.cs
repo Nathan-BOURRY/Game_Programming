@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public GameObject Bullet;
     public Transform Spawn;
     public AudioSource audio;
-    public AudioSource audio2;
+    //public AudioSource audio2;
     int nbBullet;
     Player player;
 
@@ -74,7 +74,9 @@ public class Weapon : MonoBehaviour
             {
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
-                audio2.Play();
+                /*if(audio2.isPlaying == false){
+                    audio2.Play();
+                }*/
             }
         }
     }
