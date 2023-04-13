@@ -35,13 +35,18 @@ public class Player : MonoBehaviour
 
     int randomValue;
 
+    card card;
+    generated_all generated_all;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
-         doorAction = FindObjectOfType<DoorAction>();
+        doorAction = FindObjectOfType<DoorAction>();
+        card = FindObjectOfType<card>();
+        generated_all = FindObjectOfType<generated_all>();
 
 
     }
@@ -98,34 +103,42 @@ public class Player : MonoBehaviour
         {
             if(hasRedKey){
                 
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    Debug.Log("test");
+               // if (Input.GetKeyDown(KeyCode.E)) {
+                    //Debug.Log("test");
                     hasScanKey = true;
                 
-             }
+            // }
             }
             
         }else if (collision.gameObject.tag == "terminalGreen")
         {
             if(hasGreenKey){
                 
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    Debug.Log("test");
+               // if (Input.GetKeyDown(KeyCode.E)) {
+                    //Debug.Log("test");
                     hasScanGreenKey = true;
                 
-             }
+             //}
             }
         }else if (collision.gameObject.tag == "terminalBlue")
         {
             if(hasBlueKey){
                 
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    Debug.Log("test");
+               // if (Input.GetKeyDown(KeyCode.E)) {
+                   // Debug.Log("test");
                     hasScanBlueKey = true;
                 
-             }
+            // }
             }
+        }else if (collision.gameObject.name == "redCard" || collision.gameObject.name == "blueCard" || collision.gameObject.name == "greenCard")
+        {
+            
+            StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
+             Destroy(collision.gameObject);
+    
+
         }
+    
 
 
 

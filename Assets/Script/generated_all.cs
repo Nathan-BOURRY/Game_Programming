@@ -4,20 +4,24 @@ using UnityEngine;
 using TMPro;
 public class generated_all : MonoBehaviour
 {
-
+        private TextMeshProUGUI textmeshPro2;
        private TextMeshProUGUI textmeshPro;
       private TextMeshProUGUI textmeshProLife;
+      
        int nbBullet;
        int life;
        Player player;
+       card card;
        
 
     // Start is called before the first frame update
     void Start()
     {
 
+        textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
+
          // Recherche l'objet qui a le script "Player" attaché
-        player = FindObjectOfType<Player>();
+        card = FindObjectOfType<card>();
 
          player = FindObjectOfType<Player>();
         if (player == null)
@@ -30,7 +34,7 @@ public class generated_all : MonoBehaviour
 
      
      
-        textmeshPro = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
+        textmeshPro2 = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
 
        // textmeshProLife = GameObject.Find("life_text").GetComponent<TextMeshProUGUI>();
 
@@ -46,9 +50,37 @@ public class generated_all : MonoBehaviour
 
         life = player.life;
 
-        textmeshPro.text ="" + nbBullet + " mun";
+        textmeshPro2.text ="" + nbBullet + " mun";
 
           //textmeshProLife.text ="" + life;
         
+    }
+
+   public IEnumerator EnableTextMesh(GameObject cardObject)
+    {
+        
+        if(cardObject.tag == "redKey") {
+            player.hasRedKey = true;
+            textmeshPro.text ="You found red key";
+            textmeshPro.enabled = true;
+        } else if (cardObject.tag == "greenKey") {
+            player.hasGreenKey = true;
+       
+            textmeshPro.text ="You found green key";
+            textmeshPro.enabled = true;
+        }else if (cardObject.tag == "blueKey") {
+            player.hasBlueKey = true;
+           
+            textmeshPro.text ="You found blue key";
+            textmeshPro.enabled = true;
+        }
+
+        yield return new WaitForSeconds(2.0f);
+        textmeshPro.enabled = false;
+        Destroy(cardObject);
+        
+        
+    
+         
     }
 }

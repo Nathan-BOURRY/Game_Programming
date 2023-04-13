@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class scanKey : MonoBehaviour
 {
      public Sprite spriteCheck;
      TextMeshProUGUI textmeshPro;
     Player player;
+    public AudioSource cardSwipeSound;
+    
     DoorAction doorAction;
     bool hasRedKey = false;
     bool hasScanKey = false;
@@ -19,12 +22,15 @@ public class scanKey : MonoBehaviour
     lightDoor lightDoorGreen;
     lightDoor lightDoorBlue;
     SpriteRenderer spriteRenderer;
+    public UnityEngine.Rendering.Universal.Light2D light2DredDoorRed;
+    public UnityEngine.Rendering.Universal.Light2D light2DgreenDoorRed;
    
     
     
     // Start is called before the first frame update
     void Start()
     {
+       
         textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
         player = FindObjectOfType<Player>();
         doorAction = FindObjectOfType<DoorAction>();
@@ -33,6 +39,14 @@ public class scanKey : MonoBehaviour
         lightDoorBlue = GameObject.Find("LightDoorBlue").GetComponent<lightDoor>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        
+        light2DredDoorRed = GameObject.Find("redLightRed").GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+
+        light2DgreenDoorRed = GameObject.Find("greenLightRed").GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+
+
+        light2DgreenDoorRed.enabled = false;
        
 
          
@@ -90,6 +104,11 @@ public class scanKey : MonoBehaviour
             if( gameObject.tag== "terminal"){
                   
                 spriteRenderer.sprite = spriteCheck;
+                light2DgreenDoorRed.enabled = true;
+                light2DredDoorRed.enabled = false;
+                cardSwipeSound.Play();
+
+
             }
              lightDoor.spriteRenderer.sprite = lightDoor.newSprite;
         }
@@ -99,6 +118,7 @@ public class scanKey : MonoBehaviour
                 if( gameObject.tag== "terminalBlue"){
                     
                     spriteRenderer.sprite = spriteCheck;
+                     cardSwipeSound.Play();
             }
 
                 lightDoorBlue.spriteRenderer.sprite = lightDoorBlue.newSprite;
@@ -108,6 +128,7 @@ public class scanKey : MonoBehaviour
               
                 if( gameObject.tag== "terminalGreen"){
                     spriteRenderer.sprite = spriteCheck;
+                     cardSwipeSound.Play();
                 }
                 lightDoorGreen.spriteRenderer.sprite = lightDoorGreen.newSprite;
         }

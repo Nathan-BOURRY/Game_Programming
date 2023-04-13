@@ -17,6 +17,9 @@ public class DoorAction : MonoBehaviour
     public bool hasScanBlueKey = false;
     bool hasGreenKey = false;
     public bool hasScanGreenKey = false;
+    public AudioSource openDoorSound;
+    public AudioSource closeDoorSound;
+    
 
      
     // Start is called before the first frame update
@@ -59,6 +62,12 @@ public class DoorAction : MonoBehaviour
                     if(compteur == 1){
                         
                     animator.SetBool("needToOpen", true);
+                    if(closeDoorSound.isPlaying){
+                        closeDoorSound.Stop();
+                       
+                    }
+                    openDoorSound.Play();
+
                     
                     }
                 } else if (hasRedKey){
@@ -134,13 +143,47 @@ public class DoorAction : MonoBehaviour
     
             if(compteur == 0){
                 animator.SetBool("needToOpen", false);
+                 if(gameObject.tag == "redKey"){
+                if(hasScanKey){
+                    if(openDoorSound.isPlaying){
+                        openDoorSound.Stop();
+                        closeDoorSound.Play();
+                       
+                    }
+                }
+               
+            } else if (gameObject.tag == "greenKey"){
+                if(hasScanGreenKey){
+                    if(openDoorSound.isPlaying){
+                        openDoorSound.Stop();
+                        closeDoorSound.Play();
+                       
+                    }
+                }
+            } else if (gameObject.tag == "blueKey"){
+                if(hasScanBlueKey){
+                    if(openDoorSound.isPlaying){
+                        openDoorSound.Stop();
+                        closeDoorSound.Play();
+                       
+                    }
+                }
+            }
+            }
+            
+        
+            
+            
+                
+
              
             }
         }
-    }
+    
 
     void SetTrueFinish (){
         animator.SetBool("finishAnimDoor", true);
+        
     }
 
     void SetFalseFinish (){
