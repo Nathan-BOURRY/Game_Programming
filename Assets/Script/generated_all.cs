@@ -4,14 +4,6 @@ using UnityEngine;
 using TMPro;
 public class generated_all : MonoBehaviour
 {
-<<<<<<< HEAD
-
-    private TextMeshProUGUI textmeshPro;
-    private TextMeshProUGUI textmeshProLife;
-    int nbBullet;
-    Player player;
-
-=======
         private TextMeshProUGUI textmeshPro2;
        private TextMeshProUGUI textmeshPro;
       private TextMeshProUGUI textmeshProLife;
@@ -21,21 +13,15 @@ public class generated_all : MonoBehaviour
        Player player;
        card card;
        
->>>>>>> origin/DEV_Mélaine
 
     // Start is called before the first frame update
     void Start()
     {
 
-<<<<<<< HEAD
-        // Recherche l'objet qui a le script "Player" attaché
-        player = FindObjectOfType<Player>();
-=======
         textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
 
          // Recherche l'objet qui a le script "Player" attaché
         card = FindObjectOfType<card>();
->>>>>>> origin/DEV_Mélaine
 
          player = FindObjectOfType<Player>();
         if (player == null)
@@ -46,14 +32,8 @@ public class generated_all : MonoBehaviour
         
         // Accède à la variable "nbBullet" à partir de l'objet "player"
 
-<<<<<<< HEAD
-        textmeshPro = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
-        textmeshProLife = GameObject.Find("bacta_text").GetComponent<TextMeshProUGUI>();
-=======
-     
-     
         textmeshPro2 = GameObject.Find("bullet_text").GetComponent<TextMeshProUGUI>();
->>>>>>> origin/DEV_Mélaine
+        textmeshProLife = GameObject.Find("bacta_text").GetComponent<TextMeshProUGUI>();
         
     }
 
@@ -62,13 +42,10 @@ public class generated_all : MonoBehaviour
     {
         nbBullet = player.numberOfBullet;
 
-        textmeshPro.text = "" + nbBullet + " mun";
+        
 
-<<<<<<< HEAD
         textmeshProLife.text = "" + player.life;
-=======
         textmeshPro2.text ="" + nbBullet + " mun";
->>>>>>> origin/DEV_Mélaine
         
     }
 
