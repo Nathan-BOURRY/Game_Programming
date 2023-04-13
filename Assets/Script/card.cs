@@ -24,17 +24,7 @@ public class card : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "player")
-        {
-
-            StartCoroutine(generated_all.EnableTextMesh(this.gameObject));
-             Destroy(gameObject);
-    
-
-        }
-    }
+   
 
     
 }
