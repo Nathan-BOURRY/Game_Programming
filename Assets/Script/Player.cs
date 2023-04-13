@@ -17,9 +17,7 @@ public class Player : MonoBehaviour
 
     public int numberOfBullet;
 
-<<<<<<< HEAD
     public int life;
-=======
     public bool hasScanKey= false;
     public bool hasScanGreenKey= false;
      public bool hasScanBlueKey= false;
@@ -32,8 +30,7 @@ public class Player : MonoBehaviour
 
  
 
-    public int life = 100;
->>>>>>> origin/DEV_Mélaine
+    
 
     public AudioSource audio;
 
