@@ -17,7 +17,7 @@ public class scanKey : MonoBehaviour
     bool hasBlueKey = false;
     bool hasScanBlueKey = false;
     bool hasGreenKey = false;
-    bool hasScanGreenKey = false;
+    bool hasScanGreenKey = false;  
     lightDoor lightDoor;
     lightDoor lightDoorGreen;
     lightDoor lightDoorBlue;
