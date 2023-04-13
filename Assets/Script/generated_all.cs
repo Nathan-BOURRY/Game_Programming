@@ -10,7 +10,7 @@ public class generated_all : MonoBehaviour
       
        int nbBullet;
        int life;
-       Player player;
+       public Player player;
        card card;
        
 
@@ -23,7 +23,7 @@ public class generated_all : MonoBehaviour
          // Recherche l'objet qui a le script "Player" attaché
         card = FindObjectOfType<card>();
 
-         player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
         if (player == null)
         {
             Debug.LogError("player is null!");

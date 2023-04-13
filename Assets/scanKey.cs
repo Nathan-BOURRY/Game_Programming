@@ -35,8 +35,10 @@ public class scanKey : MonoBehaviour
         player = FindObjectOfType<Player>();
         doorAction = FindObjectOfType<DoorAction>();
         lightDoor = GameObject.Find("LightDoor").GetComponent<lightDoor>();
-        lightDoorGreen = GameObject.Find("LightDoorGreen").GetComponent<lightDoor>();
-        lightDoorBlue = GameObject.Find("LightDoorBlue").GetComponent<lightDoor>();
+      
+      //todo : refaire
+       // lightDoorGreen = GameObject.Find("LightDoorGreen").GetComponent<lightDoor>();
+        //lightDoorBlue = GameObject.Find("LightDoorBlue").GetComponent<lightDoor>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
