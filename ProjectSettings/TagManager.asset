@@ -15,6 +15,7 @@ TagManager:
   - blueKey
   - terminalGreen
   - terminalBlue
+  - simpleDoor
   layers:
   - Default
   - TransparentFX

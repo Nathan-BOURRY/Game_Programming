@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     DoorAction doorAction;
 
+    public AudioSource walksound;
+
  
 
     
@@ -62,6 +64,9 @@ public class Player : MonoBehaviour
         if (movement.x != 0)
         {
             spr.flipX = movement.x < 0;
+
+          
+
         }
 
         rbody.velocity = new Vector2(velocity.x, velocity.y);
@@ -74,6 +79,14 @@ public class Player : MonoBehaviour
         {
             //TODO Ajout de l'audio de déplacement ;)
             GetComponent<Weapon>().playerMovement = movement;
+              
+              if(!walksound.isPlaying){
+              walksound.Play();
+              }
+        }else {
+            if(walksound.isPlaying){
+            walksound.Stop();
+            }
         }
     }
 

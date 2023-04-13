@@ -53,7 +53,20 @@ public class DoorAction : MonoBehaviour
         {
             compteur ++;
 
-            if(gameObject.tag == "redKey"){
+            if(gameObject.tag == "simpleDoor"){
+                if(compteur == 1){
+                        
+                    animator.SetBool("needToOpen", true);
+                    if(closeDoorSound.isPlaying){
+                        closeDoorSound.Stop();
+                       
+                    }
+                    openDoorSound.Play();
+
+                    
+                    }
+
+            } else if(gameObject.tag == "redKey"){
        
       
                 if(hasRedKey && hasScanKey){
@@ -88,6 +101,11 @@ public class DoorAction : MonoBehaviour
                 if(hasGreenKey && hasScanGreenKey){
                     if(compteur == 1){
                     animator.SetBool("needToOpen", true);
+                    if(closeDoorSound.isPlaying){
+                        closeDoorSound.Stop();
+                       
+                    }
+                    openDoorSound.Play();
                     }
                 } else if (hasGreenKey){
 
@@ -99,12 +117,18 @@ public class DoorAction : MonoBehaviour
                     //Debug.Log("n'a pas la clé");
                     textmeshPro.text ="You need the green Key !";
                     textmeshPro.enabled = true;
+
                 }
 
                 }else if(gameObject.tag == "blueKey"){
                 if(hasBlueKey && hasScanBlueKey){
                     if(compteur == 1){
                     animator.SetBool("needToOpen", true);
+                    if(closeDoorSound.isPlaying){
+                        closeDoorSound.Stop();
+                       
+                    }
+                    openDoorSound.Play();
                     }
                 } else if (hasBlueKey){
 
@@ -125,6 +149,11 @@ public class DoorAction : MonoBehaviour
                 compteur ++;
                 if(compteur == 1){
                 animator.SetBool("needToOpen", true);
+                if(closeDoorSound.isPlaying){
+                        closeDoorSound.Stop();
+                       
+                    }
+                    openDoorSound.Play();
                 
                 }
         }
@@ -143,7 +172,17 @@ public class DoorAction : MonoBehaviour
     
             if(compteur == 0){
                 animator.SetBool("needToOpen", false);
-                 if(gameObject.tag == "redKey"){
+                 if(gameObject.tag == "SimpleDoor"){
+              
+                    if(openDoorSound.isPlaying){
+                        openDoorSound.Stop();
+                        closeDoorSound.Play();
+                       
+                    }   
+                 }
+                
+                   
+                else  if(gameObject.tag == "redKey"){
                 if(hasScanKey){
                     if(openDoorSound.isPlaying){
                         openDoorSound.Stop();
