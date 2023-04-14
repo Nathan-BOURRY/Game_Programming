@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
         card = FindObjectOfType<card>();
         generated_all = FindObjectOfType<generated_all>();
         Resume();
+        
 
 
     }
@@ -96,7 +97,7 @@ public class Player : MonoBehaviour
         {
             //TODO ANIMATION DE MORT !
 
-            resume();
+            Resume();
 
         }
     }
@@ -164,14 +165,14 @@ public class Player : MonoBehaviour
 
 
     }
-    void Resume()
+    public void Resume()
     {
         endMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsEnd = false;
     }
 
-         public void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName)
     {
        gameManager.ChangeScene(sceneName);
     }   
