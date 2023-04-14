@@ -28,7 +28,10 @@ public class Player : MonoBehaviour
 
     DoorAction doorAction;
 
- 
+     public static bool gameIsEnd = false;
+    public GameObject endMenuUI;
+
+    public GameManager gameManager;
 
     
 
@@ -48,6 +51,8 @@ public class Player : MonoBehaviour
         doorAction = FindObjectOfType<DoorAction>();
         card = FindObjectOfType<card>();
         generated_all = FindObjectOfType<generated_all>();
+        Resume();
+        
 
 
     }
@@ -91,6 +96,8 @@ public class Player : MonoBehaviour
         else
         {
             //TODO ANIMATION DE MORT !
+
+            Resume();
 
         }
     }
@@ -158,5 +165,23 @@ public class Player : MonoBehaviour
 
 
     }
+    public void Resume()
+    {
+        endMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsEnd = false;
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+       gameManager.ChangeScene(sceneName);
+    }   
+
+    public void ExitGame()
+    {
+        gameManager.ExitGame();
+    }
+
+   
 }
 
