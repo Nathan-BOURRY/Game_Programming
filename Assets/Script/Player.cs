@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
         doorAction = FindObjectOfType<DoorAction>();
         card = FindObjectOfType<card>();
         generated_all = FindObjectOfType<generated_all>();
+        Resume();
 
 
     }
@@ -180,9 +181,6 @@ public class Player : MonoBehaviour
         gameManager.ExitGame();
     }
 
-    void Start()
-    {
-        Resume();
-    }
+   
 }
 
