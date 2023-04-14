@@ -7,7 +7,7 @@ public class DoorAction : MonoBehaviour
 {
 
     Animator animator;
-    int compteur=0;
+    int compteur = 0;
     Player player;
     TextMeshProUGUI textmeshPro;
     private float timer = 5f;
@@ -19,16 +19,16 @@ public class DoorAction : MonoBehaviour
     public bool hasScanGreenKey = false;
     public AudioSource openDoorSound;
     public AudioSource closeDoorSound;
-    
 
-     
+
+
     // Start is called before the first frame update
     void Start()
     {
-          animator = GetComponent<Animator>();
-          player = FindObjectOfType<Player>();
-          textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
-           textmeshPro.enabled = false;
+        animator = GetComponent<Animator>();
+        player = FindObjectOfType<Player>();
+        textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
+        textmeshPro.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,92 +41,119 @@ public class DoorAction : MonoBehaviour
         hasGreenKey = player.hasGreenKey;
         hasScanGreenKey = player.hasScanGreenKey;
 
-        
-       
+
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-    
+
         //todo : 
         if (other.gameObject.tag == "player")
         {
-            compteur ++;
+            compteur++;
 
-            if(gameObject.tag == "redKey"){
-       
-      
-                if(hasRedKey && hasScanKey){
-                    
-                
-                    if(compteur == 1){
-                        
-                    animator.SetBool("needToOpen", true);
-                    if(closeDoorSound.isPlaying){
-                        closeDoorSound.Stop();
-                       
+            if (gameObject.tag == "redKey")
+            {
+
+
+                if (hasRedKey && hasScanKey)
+                {
+
+
+                    if (compteur == 1)
+                    {
+
+                        animator.SetBool("needToOpen", true);
+                        if (closeDoorSound.isPlaying)
+                        {
+                            closeDoorSound.Stop();
+
+                        }
+                        openDoorSound.Play();
+
+
                     }
-                    openDoorSound.Play();
+                }
+                else if (hasRedKey)
+                {
 
-                    
-                    }
-                } else if (hasRedKey){
-
-                    textmeshPro.text ="Scan the red key on the terminal !";
-                    textmeshPro.enabled = true;
-
-                } else {
-
-                    
-                
-                    //Debug.Log("n'a pas la clé");
-                    textmeshPro.text ="You need the red Key !";
+                    textmeshPro.text = "Scan the red key on the terminal !";
                     textmeshPro.enabled = true;
 
                 }
-            }else if(gameObject.tag == "greenKey"){
-                if(hasGreenKey && hasScanGreenKey){
-                    if(compteur == 1){
-                    animator.SetBool("needToOpen", true);
-                    }
-                } else if (hasGreenKey){
+                else
+                {
 
-                    textmeshPro.text ="Scan the green key on the terminal !";
-                    textmeshPro.enabled = true;
 
-                } else {
 
                     //Debug.Log("n'a pas la clé");
-                    textmeshPro.text ="You need the green Key !";
+                    textmeshPro.text = "You need the red Key !";
                     textmeshPro.enabled = true;
+
                 }
-
-                }else if(gameObject.tag == "blueKey"){
-                if(hasBlueKey && hasScanBlueKey){
-                    if(compteur == 1){
-                    animator.SetBool("needToOpen", true);
+            }
+            else if (gameObject.tag == "greenKey")
+            {
+                if (hasGreenKey && hasScanGreenKey)
+                {
+                    if (compteur == 1)
+                    {
+                        animator.SetBool("needToOpen", true);
                     }
-                } else if (hasBlueKey){
+                }
+                else if (hasGreenKey)
+                {
 
-                    textmeshPro.text ="Scan the blue key on the terminal !";
+                    textmeshPro.text = "Scan the green key on the terminal !";
                     textmeshPro.enabled = true;
 
-                } else {
+                }
+                else
+                {
 
                     //Debug.Log("n'a pas la clé");
-                    textmeshPro.text ="You need the blue Key !";
+                    textmeshPro.text = "You need the green Key !";
+                    textmeshPro.enabled = true;
+                }
+
+            }
+            else if (gameObject.tag == "blueKey")
+            {
+                if (hasBlueKey && hasScanBlueKey)
+                {
+                    if (compteur == 1)
+                    {
+                        animator.SetBool("needToOpen", true);
+                    }
+                }
+                else if (hasBlueKey)
+                {
+
+                    textmeshPro.text = "Scan the blue key on the terminal !";
                     textmeshPro.enabled = true;
 
                 }
+                else
+                {
+
+                    //Debug.Log("n'a pas la clé");
+                    textmeshPro.text = "You need the blue Key !";
+                    textmeshPro.enabled = true;
+
                 }
-                
-        } else if (other.gameObject.tag == "droid"){
-                
-                compteur ++;
-                if(compteur == 1){
+            }
+
+        }
+        else if (other.gameObject.tag == "droid")
+        {
+
+            compteur++;
+            if (compteur == 1)
+            {
                 animator.SetBool("needToOpen", true);
-                
-                }
+
+            }
         }
     }
 
@@ -138,55 +165,62 @@ public class DoorAction : MonoBehaviour
 
             textmeshPro.enabled = false;
 
-            compteur --;
-                
-    
-            if(compteur == 0){
-                animator.SetBool("needToOpen", false);
-                 if(gameObject.tag == "redKey"){
-                if(hasScanKey){
-                    if(openDoorSound.isPlaying){
-                        openDoorSound.Stop();
-                        closeDoorSound.Play();
-                       
-                    }
-                }
-               
-            } else if (gameObject.tag == "greenKey"){
-                if(hasScanGreenKey){
-                    if(openDoorSound.isPlaying){
-                        openDoorSound.Stop();
-                        closeDoorSound.Play();
-                       
-                    }
-                }
-            } else if (gameObject.tag == "blueKey"){
-                if(hasScanBlueKey){
-                    if(openDoorSound.isPlaying){
-                        openDoorSound.Stop();
-                        closeDoorSound.Play();
-                       
-                    }
-                }
-            }
-            }
-            
-        
-            
-            
-                
+            compteur--;
 
-             
+
+            if (compteur == 0)
+            {
+                animator.SetBool("needToOpen", false);
+                if (gameObject.tag == "redKey")
+                {
+                    if (hasScanKey)
+                    {
+                        if (openDoorSound.isPlaying)
+                        {
+                            openDoorSound.Stop();
+                            closeDoorSound.Play();
+
+                        }
+                    }
+
+                }
+                else if (gameObject.tag == "greenKey")
+                {
+                    if (hasScanGreenKey)
+                    {
+                        if (openDoorSound.isPlaying)
+                        {
+                            openDoorSound.Stop();
+                            closeDoorSound.Play();
+
+                        }
+                    }
+                }
+                else if (gameObject.tag == "blueKey")
+                {
+                    if (hasScanBlueKey)
+                    {
+                        if (openDoorSound.isPlaying)
+                        {
+                            openDoorSound.Stop();
+                            closeDoorSound.Play();
+
+                        }
+                    }
+                }
             }
         }
-    
-
-    void SetTrueFinish (){
-        animator.SetBool("finishAnimDoor", true);
-        
     }
 
-    void SetFalseFinish (){
+
+    void SetTrueFinish()
+    {
+        animator.SetBool("finishAnimDoor", true);
+
+    }
+
+    void SetFalseFinish()
+    {
         animator.SetBool("finishAnimDoor", false);
     }
 }

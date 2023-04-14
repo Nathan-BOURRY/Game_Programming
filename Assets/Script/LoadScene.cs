@@ -5,22 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-
-
-    string sceneToLoad = "";
-    Animator animator = null;
-
-    public static LoadScene instance = null;
+    static Animator animator = null;
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-        DontDestroyOnLoad(transform.parent.gameObject);
+        DontDestroyOnLoad(transform.parent);
     }
     // Start is called before the first frame update
     void Start()
@@ -28,23 +17,12 @@ public class LoadScene : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void LaunchSceneLoad(string sceneToLoad)
+    public static IEnumerator LoadLaunchScene(string sceneToLoad)
     {
-        this.sceneToLoad = sceneToLoad;
-        animator.SetBool("Opaque", true);
-    }
-
-    public void LoadNextScene()
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).speed == 1)
-        {
-            SceneManager.LoadSceneAsync(sceneToLoad).completed += (AsyncOperation op) =>
-            {
-                animator.SetBool("Opaque", false);
-            };
-        }
-
-
+        animator.SetBool("IsLoading", true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("IsLoading", false);
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     // Update is called once per frame
