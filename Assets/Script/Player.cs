@@ -28,7 +28,10 @@ public class Player : MonoBehaviour
 
     DoorAction doorAction;
 
- 
+     public static bool gameIsEnd = false;
+    public GameObject endMenuUI;
+
+    public GameManager gameManager;
 
     
 
@@ -91,6 +94,8 @@ public class Player : MonoBehaviour
         else
         {
             //TODO ANIMATION DE MORT !
+
+            resume();
 
         }
     }
@@ -157,6 +162,27 @@ public class Player : MonoBehaviour
     
 
 
+    }
+    void Resume()
+    {
+        endMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsEnd = false;
+    }
+
+         public void ChangeScene(string sceneName)
+    {
+       gameManager.ChangeScene(sceneName);
+    }   
+
+    public void ExitGame()
+    {
+        gameManager.ExitGame();
+    }
+
+    void Start()
+    {
+        Resume();
     }
 }
 
