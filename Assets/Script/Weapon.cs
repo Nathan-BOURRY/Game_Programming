@@ -65,9 +65,6 @@ public class Weapon : MonoBehaviour
 
             if (rotation >= 45 && rotation <= 135) // En haut
             {
-<<<<<<< HEAD
-                instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x, Spawn.position.y + 0.5f), Quaternion.Euler(0, 0, rotation));
-=======
                 audio.Play();
                 player.animator.SetBool("isFire", true);
                 player.numberOfBullet = player.numberOfBullet - 1;
@@ -93,19 +90,14 @@ public class Weapon : MonoBehaviour
                 }
                 instanBullet.GetComponent<Bullet>().mouvement = playerMovement;
 
->>>>>>> Dev_Mélaine
             }
             else if (rotation > 135 && rotation <= 225) //A gauche
             {
-<<<<<<< HEAD
-                instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x - 1.5f, Spawn.position.y), Quaternion.Euler(0, 0, rotation));
-=======
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
                 if(audio2.isPlaying == false){
                     audio2.Play();
                 }
->>>>>>> Dev_Mélaine
             }
             else if (rotation > 225 && rotation < 315)
             {

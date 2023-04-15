@@ -40,21 +40,13 @@ public AudioSource walksound;
 public AudioSource itemSound;
 public AudioSource BactaSound;
 
-
-    // Start is called before the first frame update
-
-
-        
-
-
-
 public AudioSource audio;
 public AudioSource takeAShot;
 public AudioSource deadSound;
 int randomValue;
 
 
-    void Start()
+    public void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
@@ -73,7 +65,7 @@ int randomValue;
     
 
 
-    }
+    
     public void Resume()
     {
         endMenuUI.SetActive(false);
