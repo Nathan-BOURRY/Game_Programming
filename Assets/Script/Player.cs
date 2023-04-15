@@ -33,6 +33,8 @@ public bool heWasUp = false;
 DoorAction doorAction;
 
 public AudioSource walksound;
+public AudioSource itemSound;
+public AudioSource BactaSound;
 
 
 
@@ -202,7 +204,19 @@ if (collision.gameObject.tag == "munition")
         }
     }
     audio.Play();
-} 
+} else  if (collision.gameObject.tag == "bacta" && life != 100)
+        {
+            if (life >= 50)
+            {
+                life = 100;
+            }
+            else
+            {
+                life += 50;
+            }
+            Destroy(collision.gameObject);
+            BactaSound.Play();
+        }
 
 else if (collision.gameObject.tag == "terminal")
 {
@@ -239,6 +253,7 @@ else if (collision.gameObject.tag == "terminal")
 {
     
     StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
+    itemSound.Play();
         Destroy(collision.gameObject);
 
 
