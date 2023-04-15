@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public GameObject Bullet;
     public Transform Spawn;
     public AudioSource audio;
-    //public AudioSource audio2;
+    public AudioSource audio2;
     int nbBullet;
     Player player;
 
@@ -60,15 +60,15 @@ public class Weapon : MonoBehaviour
 
                 if (rotation >= 45 && rotation <= 135) // En haut
                 {
-                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x, Spawn.position.y + 0.5f), Quaternion.Euler(0, 0, rotation));
+                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x -0.75f, Spawn.position.y + 0.5f), Quaternion.Euler(0, 0, rotation));
                 }
                 else if (rotation > 135 && rotation <= 225) //A gauche
                 {
                     instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x - 1.5f, Spawn.position.y), Quaternion.Euler(0, 0, rotation));
                 }
-                else if (rotation > 225 && rotation < 315)
+                else if (rotation > 225 && rotation <= 315)//En bas
                 {
-                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x, Spawn.position.y - 0.5f), Quaternion.Euler(0, 0, rotation));
+                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x -0.75f, Spawn.position.y + 0.5f), Quaternion.Euler(0, 0, rotation));
                 }
                 else //Droite
                 {
@@ -81,9 +81,9 @@ public class Weapon : MonoBehaviour
             {
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
-                /*if(audio2.isPlaying == false){
+                if(audio2.isPlaying == false){
                     audio2.Play();
-                }*/
+                }
             }
         }
     }
