@@ -13,7 +13,7 @@ public class droid : MonoBehaviour
     public GameObject Bullet;
     float rotation;
     bool readyShoot;
-
+    public AudioSource fireSound;
     private Vector2 bulletDirection;
 
     void Awake()
@@ -52,6 +52,7 @@ public class droid : MonoBehaviour
             targetPosition = detection.transform.position;
             if (readyShoot)
             {
+                fireSound.Play();
                 //rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 180;
                 bulletDirection = new Vector2((Player.transform.position.x - transform.position.x), (Player.transform.position.y - transform.position.y));
                 bulletDirection.Normalize();
