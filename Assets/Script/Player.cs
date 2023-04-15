@@ -39,6 +39,7 @@ public AudioSource walksound;
 
 
 public AudioSource audio;
+public AudioSource takeAShot;
 
 int randomValue;
 
@@ -168,6 +169,7 @@ if (life > 0)
     if (collision.gameObject.tag == "balle")
     {
         life = life - 10;
+        takeAShot.Play();
     }
 
 }
