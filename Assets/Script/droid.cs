@@ -7,6 +7,7 @@ public class droid : MonoBehaviour
 {
 NavMeshAgent agent;
 private Vector3 targetPosition;
+SpriteRenderer spr = null;
 GameObject instanBullet;
 bool alreadyDetected = false;
 public AudioSource rogerSound;
@@ -19,6 +20,9 @@ public AudioSource destroySound;
 private Vector2 bulletDirection;
 Animator animator;
 bool isDead = false;
+public Vector2 movement = Vector2.zero;
+private Vector3 previousPosition;
+
 
 void Awake()
 {
@@ -34,21 +38,50 @@ void Start()
     targetPosition = transform.position;
     readyShoot = true;
     animator = GetComponent<Animator>();
+    spr = GetComponent<SpriteRenderer>();
+    previousPosition = transform.position;
 }
 
 // Update is called once per frame
 void Update()
 {
+
+       if (transform.position.x > previousPosition.x)
+{
+//Debug.Log("L'agent se déplace vers la droite");
+transform.rotation = Quaternion.Euler(0, 180, 0);
+}
+else if (transform.position.x < previousPosition.x)
+{
+//Debug.Log("L'agent se déplace vers la gauche");
+transform.rotation = Quaternion.Euler(0, 0, 0);
+}
+
+    if (agent.velocity.magnitude > 0)
+    {
+        animator.SetBool("droidIsWalking", true);
+    } else {
+        animator.SetBool("droidIsWalking", false);
+    }
+
+    
     if(!isDead){
         if (noWalkZone.walk)
         {
+                    
+             
+            
             agent.SetDestination(new Vector3(targetPosition.x, targetPosition.y, transform.position.z));
+            
         }
         else
         {
+            
             agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z));
 
         }
+    }else {
+        agent.speed = 0;
     }
 }
 

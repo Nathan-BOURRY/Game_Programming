@@ -40,6 +40,7 @@ public AudioSource walksound;
 
 public AudioSource audio;
 public AudioSource takeAShot;
+public AudioSource deadSound;
 
 int randomValue;
 
@@ -69,7 +70,9 @@ velocity = movement * speed;
 
 if (movement.x != 0)
 {
+    if(!heWasDown || !heWasUp){
     spr.flipX = movement.x < 0;
+    }
         animator.SetBool("isDown", false);
         animator.SetBool("isUp", false);
         animator.SetBool("isWalkingUp", false);
@@ -176,6 +179,7 @@ if (life > 0)
 else
 {
     //TODO ANIMATION DE MORT !
+    deadSound.Play();
 
 }
 }
