@@ -31,9 +31,9 @@ public bool heWasDown = false;
 public bool heWasUp = false;
 
      public static bool gameIsEnd = false;
-    public GameObject endMenuUI;
+    //public GameObject endMenuUI;
 
-    public GameManager gameManager;
+   // public GameManager gameManager;
 DoorAction doorAction;
 
 public AudioSource walksound;
@@ -44,49 +44,24 @@ public AudioSource audio;
 public AudioSource takeAShot;
 public AudioSource deadSound;
 int randomValue;
-
-
-    public void Start()
-    {
-        rbody = GetComponent<Rigidbody2D>();
-        spr = GetComponent<SpriteRenderer>();
-        doorAction = FindObjectOfType<DoorAction>();
-        card = FindObjectOfType<card>();
-        generated_all = FindObjectOfType<generated_all>();
-        Resume();
-        animator = GetComponent<Animator>();
-
-    }
-
-
-
-        
-    
-    
-
-
-    
-    public void Resume()
-    {
-        endMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsEnd = false;
-    }
-
-    public void ChangeScene(string sceneName)
-    {
-       gameManager.ChangeScene(sceneName);
-    }   
-
-    public void ExitGame()
-    {
-        gameManager.ExitGame();
-    }
-
-   
 card card;
 generated_all generated_all;
 
+void Awake (){
+    animator = GetComponent<Animator>();
+}
+
+void Start()
+{
+    rbody = GetComponent<Rigidbody2D>();
+    spr = GetComponent<SpriteRenderer>();
+    doorAction = FindObjectOfType<DoorAction>();
+    card = FindObjectOfType<card>();
+    generated_all = FindObjectOfType<generated_all>();
+    
+    animator = GetComponent<Animator>();
+
+}
 
 
 
@@ -171,6 +146,11 @@ if(movement.y == 0 && movement.x == 0){
 rbody.velocity = new Vector2(velocity.x, velocity.y);
 }
 
+ 
+    
+
+   
+
 public void OnMove(InputValue val)
 {
 movement = val.Get<Vector2>();
@@ -193,6 +173,7 @@ if (movement != Vector2.zero)
 }
 }
 
+
 void OnCollisionEnter2D(Collision2D collision)
 {
 if (life > 0)
@@ -209,6 +190,7 @@ else
 {
     //TODO ANIMATION DE MORT !
     deadSound.Play();
+    
 
 }
 }
@@ -289,5 +271,9 @@ else if (collision.gameObject.tag == "terminal")
 
 
 }
+
+
+
+
 }
 
