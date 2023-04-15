@@ -8,13 +8,17 @@ public class droid : MonoBehaviour
     NavMeshAgent agent;
     private Vector3 targetPosition;
     GameObject instanBullet;
-
+    bool alreadyDetected = false;
+    public AudioSource rogerSound;
     public GameObject Player;
     public GameObject Bullet;
     float rotation;
     bool readyShoot;
     public AudioSource fireSound;
+    public AudioSource destroySound;
     private Vector2 bulletDirection;
+    Animator animator;
+    bool isDead = false;
 
     void Awake()
     {
@@ -29,6 +33,7 @@ public class droid : MonoBehaviour
     {
         targetPosition = transform.position;
         readyShoot = true;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,8 +52,13 @@ public class droid : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D detection)
     {
-        if (detection.gameObject.tag == "player")
+        if (detection.gameObject.tag == "player" && !isDead)
+
         {
+            if(!alreadyDetected){
+                rogerSound.Play();
+                alreadyDetected = true;
+            }
             targetPosition = detection.transform.position;
             if (readyShoot)
             {
@@ -77,7 +87,7 @@ public class droid : MonoBehaviour
 
                 instanBullet.GetComponent<Bullet>().speed = 8;
                 instanBullet.GetComponent<Bullet>().mouvement = bulletDirection;
-                StartCoroutine(CouldownWeapon(2));
+                StartCoroutine(CouldownWeapon(1.5f));
             }
         }
     }
@@ -86,10 +96,14 @@ public class droid : MonoBehaviour
     {
         if (collision.gameObject.tag == "balle")
         {
-            Destroy(gameObject);
+            isDead = true;
+            animator.SetBool("isDestroy", true);
+            //sound + animation
+            destroySound.Play();
+            Destroy(gameObject, 1.4f);
         }
     }
-    IEnumerator CouldownWeapon(int temps)
+    IEnumerator CouldownWeapon(float temps)
     {
 
         //Execution du code
