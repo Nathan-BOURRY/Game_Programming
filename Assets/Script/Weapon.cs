@@ -37,6 +37,12 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(player.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f )
+        {
+            player.animator.SetBool("isFire", false);
+            
+        }
         // if (Gamepad.current.xButton.wasPressedThisFrame)
         // {
         //     Debug.Log("YES");
@@ -46,6 +52,7 @@ public class Weapon : MonoBehaviour
             if (player.numberOfBullet > 0)
             {
                 audio.Play();
+                player.animator.SetBool("isFire", true);
                 player.numberOfBullet = player.numberOfBullet - 1;
                 rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 90;
 

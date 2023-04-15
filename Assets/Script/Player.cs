@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     Vector2 velocity = Vector2.zero;
 
     SpriteRenderer spr = null;
+    public Animator animator;
 
     public int numberOfBullet;
 
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
         doorAction = FindObjectOfType<DoorAction>();
@@ -64,9 +66,21 @@ public class Player : MonoBehaviour
         if (movement.x != 0)
         {
             spr.flipX = movement.x < 0;
+             animator.SetBool("isDown", false);
 
           
-
+        }
+        if (movement.y > 0)
+        {
+            // Le joueur monte
+            Debug.Log("Le joueur monte !");
+             animator.SetBool("isDown", false);
+        }
+        else if (movement.y < 0)
+        {
+            // Le joueur descend
+            Debug.Log("Le joueur descend !");
+            animator.SetBool("isDown", true);
         }
 
         rbody.velocity = new Vector2(velocity.x, velocity.y);
@@ -79,11 +93,15 @@ public class Player : MonoBehaviour
         {
             //TODO Ajout de l'audio de déplacement ;)
             GetComponent<Weapon>().playerMovement = movement;
+            
+            animator.SetBool("isWalking", true);
               
               if(!walksound.isPlaying){
               walksound.Play();
               }
         }else {
+            animator.SetBool("isWalking", false);
+            
             if(walksound.isPlaying){
             walksound.Stop();
             }
