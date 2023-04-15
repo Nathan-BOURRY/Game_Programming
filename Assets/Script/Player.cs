@@ -258,12 +258,13 @@ else if (collision.gameObject.tag == "terminal")
         
     // }
     }
+    Debug.Log("name = " + collision.gameObject.name);
 }else if (collision.gameObject.name == "redCard" || collision.gameObject.name == "blueCard" || collision.gameObject.name == "greenCard")
 {
     
     StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
     itemSound.Play();
-        Destroy(collision.gameObject);
+    Destroy(collision.gameObject);
 
 
 }
