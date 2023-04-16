@@ -41,73 +41,45 @@ void Update()
     hasBlueKey = player.hasBlueKey;
     hasScanBlueKey = player.hasScanBlueKey;
     hasGreenKey = player.hasGreenKey;
-    hasScanGreenKey = player.hasScanGreenKey;
-  
-
-    
-   
-                
-
-    
+    hasScanGreenKey = player.hasScanGreenKey; 
     
 }
 
 void OnTriggerEnter2D(Collider2D other)
 {
 
-    //todo : 
-    if (other.gameObject.tag == "player"    )
+    
+    if (other.gameObject.tag == "player")
     {
-        
         compteur ++;
-
-        
         if(gameObject.tag == "simpleDoor"){
             if(compteur >= 1){
                     
                 animator.SetBool("needToOpen", true);
                 if(closeDoorSound.isPlaying){
                     closeDoorSound.Stop();
-                    
                 }
                 openDoorSound.Play();
-
-                
                 }
-
         } else if(gameObject.tag == "redKey"){
-    
-    
             if(hasRedKey && hasScanKey){
-                
-            
-                if(compteur >= 1){
-                    
+                if(compteur >= 1){      
                 animator.SetBool("needToOpen", true);
                 if(closeDoorSound.isPlaying){
-                    closeDoorSound.Stop();
-                    
+                    closeDoorSound.Stop(); 
                 }
                 openDoorSound.Play();
-
-                
                 }
             } else if (hasRedKey){
-
                 if(other.gameObject.tag == "player" ){
                 textmeshPro.text ="Scan the red key on the terminal !";
                 textmeshPro.enabled = true;
                 }
-
             } else {
-
-                
                 if(other.gameObject.tag == "player" ){
-               
                 textmeshPro.text ="You need the red Key !";
                 textmeshPro.enabled = true;
                 }
-
             }
         }else if(gameObject.tag == "greenKey"){
             if(hasGreenKey && hasScanGreenKey){
@@ -129,7 +101,6 @@ void OnTriggerEnter2D(Collider2D other)
 
             } else {
 
-                //Debug.Log("n'a pas la clé");
                 if(other.gameObject.tag == "player" ){
                 textmeshPro.text ="You need the green Key !";
                 textmeshPro.enabled = true;
@@ -157,7 +128,6 @@ void OnTriggerEnter2D(Collider2D other)
 
             } else {
                 if(other.gameObject.tag == "player" ){
-                //Debug.Log("n'a pas la clé");
                 textmeshPro.text ="You need the blue Key !";
                 textmeshPro.enabled = true;
                 }
@@ -170,7 +140,6 @@ void OnTriggerEnter2D(Collider2D other)
 
 void OnTriggerExit2D(Collider2D other)
 {
-    //todo : 
     if (other.gameObject.tag == "player" )
     {
 
@@ -223,13 +192,7 @@ void OnTriggerExit2D(Collider2D other)
             }
         }
         }
-        
-    
-        
-        
-            
-
-            
+      
         }
     }
 

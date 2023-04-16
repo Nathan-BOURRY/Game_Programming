@@ -48,44 +48,35 @@ void Start()
 // Update is called once per frame
 void Update()
 {
-
-       if (transform.position.x > previousPosition.x)
+if (transform.position.x > previousPosition.x)
 {
-//Debug.Log("L'agent se déplace vers la droite");
-transform.rotation = Quaternion.Euler(0, 180, 0);
+    transform.rotation = Quaternion.Euler(0, 180, 0);
 }
 else if (transform.position.x < previousPosition.x)
 {
-//Debug.Log("L'agent se déplace vers la gauche");
-transform.rotation = Quaternion.Euler(0, 0, 0);
+    transform.rotation = Quaternion.Euler(0, 0, 0);
 }
 
-    if (agent.velocity.magnitude > 0)
-    {
-        animator.SetBool("droidIsWalking", true);
-    } else {
-        animator.SetBool("droidIsWalking", false);
-    }
+if (agent.velocity.magnitude > 0)
+{
+    animator.SetBool("droidIsWalking", true);
+} else {
+    animator.SetBool("droidIsWalking", false);
+}
 
     
-    if(!isDead){
-        if (noWalkZone.walk)
-        {
-                    
-             
-            
-            agent.SetDestination(new Vector3(targetPosition.x, targetPosition.y, transform.position.z));
-            
-        }
-        else
-        {
-            
-            agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z));
-
-        }
-    }else {
-        agent.speed = 0;
+if(!isDead){
+    if (noWalkZone.walk)
+    {
+        agent.SetDestination(new Vector3(targetPosition.x, targetPosition.y, transform.position.z));
     }
+    else
+    {
+        agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+    }
+}else {
+    agent.speed = 0;
+}
 }
 
 void OnTriggerStay2D(Collider2D detection)
@@ -101,7 +92,7 @@ void OnTriggerStay2D(Collider2D detection)
         if (readyShoot)
         {
             fireSound.Play();
-            //rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 180;
+            
             bulletDirection = new Vector2((Player.transform.position.x - transform.position.x), (Player.transform.position.y - transform.position.y));
             bulletDirection.Normalize();
             rotation = Mathf.Rad2Deg * Mathf.Atan2(-bulletDirection.x, bulletDirection.y) + 90;
@@ -137,7 +128,7 @@ void OnCollisionEnter2D(Collision2D collision)
     {
         isDead = true;
         animator.SetBool("isDestroy", true);
-        //sound + animation
+        
         if(!destroySound.isPlaying){
         destroySound.Play();
         }

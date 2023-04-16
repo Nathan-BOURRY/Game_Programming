@@ -43,14 +43,8 @@ public class Weapon : MonoBehaviour
             player.animator.SetBool("isFire", false);
             
         }
-        // if (Gamepad.current.xButton.wasPressedThisFrame)
-        // {
-        //     Debug.Log("YES");
-        // }
-        //if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        //{
 
-        //}
+       
 
     }
     public void OnFire()
@@ -62,7 +56,7 @@ public class Weapon : MonoBehaviour
                 player.numberOfBullet = player.numberOfBullet - 1;
                 rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 90;
                 Debug.Log("rotation"+rotation);
-                //TODO : Fix Spawn bullet with animation
+                
 
                 if (rotation >= 45 && rotation <= 135) // En haut
                 {
@@ -85,8 +79,7 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                //todo : text no bullet to show on hud
-                //Debug.Log("plus de balle");
+             
                 if(emptySound.isPlaying == false){
                     emptySound.Play();
                 }
