@@ -18,9 +18,9 @@ public class Player : MonoBehaviour
     public int numberOfBullet;
 
     public int life;
-    public bool hasScanKey= false;
-    public bool hasScanGreenKey= false;
-     public bool hasScanBlueKey= false;
+    public bool hasScanKey = false;
+    public bool hasScanGreenKey = false;
+    public bool hasScanBlueKey = false;
 
     public bool hasRedKey = false;
     public bool hasGreenKey = false;
@@ -28,12 +28,12 @@ public class Player : MonoBehaviour
 
     DoorAction doorAction;
 
-     public static bool gameIsEnd = false;
+    public static bool gameIsEnd = false;
     public GameObject endMenuUI;
 
     public GameManager gameManager;
 
-    
+
 
     public AudioSource audio;
 
@@ -51,8 +51,8 @@ public class Player : MonoBehaviour
         doorAction = FindObjectOfType<DoorAction>();
         card = FindObjectOfType<card>();
         generated_all = FindObjectOfType<generated_all>();
-        Resume();
-        
+        //Resume();
+
 
 
     }
@@ -60,8 +60,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-        
+
+
         velocity = movement * speed;
 
         if (movement.x != 0)
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         {
             //TODO ANIMATION DE MORT !
 
-            Resume();
+            //Resume();
 
         }
     }
@@ -120,68 +120,74 @@ public class Player : MonoBehaviour
                 }
             }
             audio.Play();
-        } 
-        
+        }
+
         else if (collision.gameObject.tag == "terminal")
         {
-            if(hasRedKey){
-                
-               // if (Input.GetKeyDown(KeyCode.E)) {
-                    //Debug.Log("test");
-                    hasScanKey = true;
-                
-            // }
+            if (hasRedKey)
+            {
+
+                // if (Input.GetKeyDown(KeyCode.E)) {
+                //Debug.Log("test");
+                hasScanKey = true;
+
+                // }
             }
-            
-        }else if (collision.gameObject.tag == "terminalGreen")
-        {
-            if(hasGreenKey){
-                
-               // if (Input.GetKeyDown(KeyCode.E)) {
-                    //Debug.Log("test");
-                    hasScanGreenKey = true;
-                
-             //}
-            }
-        }else if (collision.gameObject.tag == "terminalBlue")
-        {
-            if(hasBlueKey){
-                
-               // if (Input.GetKeyDown(KeyCode.E)) {
-                   // Debug.Log("test");
-                    hasScanBlueKey = true;
-                
-            // }
-            }
-        }else if (collision.gameObject.name == "redCard" || collision.gameObject.name == "blueCard" || collision.gameObject.name == "greenCard")
-        {
-            
-            StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
-             Destroy(collision.gameObject);
-    
 
         }
-    
+        else if (collision.gameObject.tag == "terminalGreen")
+        {
+            if (hasGreenKey)
+            {
+
+                // if (Input.GetKeyDown(KeyCode.E)) {
+                //Debug.Log("test");
+                hasScanGreenKey = true;
+
+                //}
+            }
+        }
+        else if (collision.gameObject.tag == "terminalBlue")
+        {
+            if (hasBlueKey)
+            {
+
+                // if (Input.GetKeyDown(KeyCode.E)) {
+                // Debug.Log("test");
+                hasScanBlueKey = true;
+
+                // }
+            }
+        }
+        else if (collision.gameObject.name == "redCard" || collision.gameObject.name == "blueCard" || collision.gameObject.name == "greenCard")
+        {
+
+            StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
+            Destroy(collision.gameObject);
+
+
+        }
+
 
 
     }
-    public void Resume()
-    {
-        endMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsEnd = false;
-    }
+    // public void Resume()
+    // {
+    //     //endMenuUI.SetActive(false);
+    //     Time.timeScale = 1f;
+    //     gameIsEnd = false;
+    // }
 
-    public void ChangeScene(string sceneName)
-    {
-       gameManager.ChangeScene(sceneName);
-    }   
+    // public void ChangeScene(string sceneName)
+    // {
+    //     gameManager.ChangeScene(sceneName);
+    // }
 
-    public void ExitGame()
-    {
-        gameManager.ExitGame();
-    }
+    // public void ExitGame()
+    // {
+    //     gameManager.ExitGame();
+    // }
 
-   
+
 }
 

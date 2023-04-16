@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPause : MonoBehaviour
 {
     public static bool gameIsPaused = false;
+
     public GameObject pauseMenuUI;
 
-    public GameManager gameManager;
-    void Update()
+    //public GameObject settingsWindow;
+    void update()
     {
+        Debug.Log("yes");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
@@ -18,37 +21,53 @@ public class MenuPause : MonoBehaviour
             }
             else
             {
-                Pause();
+                Paused();
             }
         }
     }
+    // public void OnPause()
+    // {
+    //     Debug.Log("YES");
+    //     if (gameIsPaused)
+    //     {
+    //         Resume();
+    //     }
+    //     else
+    //     {
+    //         Paused();
+    //     }
 
-    void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-    }
+    // }
 
-    void Pause()
+    void Paused()
     {
-       pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        //PlayerMovement.instance.enabled = false;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0;
         gameIsPaused = true;
     }
 
-     public void ChangeScene(string sceneName)
+    public void Resume()
     {
-       gameManager.ChangeScene(sceneName);
-    }   
-
-    public void ExitGame()
-    {
-        gameManager.ExitGame();
+        //PlayerMovement.instance.enabled = true;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1;
+        gameIsPaused = false;
     }
 
-    void Start()
+    // public void OpenSettingsWindow()
+    // {
+    //     settingsWindow.SetActive(true);
+    // }
+
+    // public void CloseSettingsWindow()
+    // {
+    //     settingsWindow.SetActive(false);
+    // }
+
+    public void LoadMainMenu()
     {
         Resume();
+        SceneManager.LoadScene("MainMenu");
     }
 }
