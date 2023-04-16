@@ -23,7 +23,7 @@ public class generated_all : MonoBehaviour
          // Recherche l'objet qui a le script "Player" attaché
         card = FindObjectOfType<card>();
 
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>(); 
         if (player == null)
         {
             Debug.LogError("player is null!");
@@ -55,7 +55,7 @@ public class generated_all : MonoBehaviour
         if(cardObject.tag == "redKey") {
             player.hasRedKey = true;
             textmeshPro.text ="You found red key";
-            textmeshPro.enabled = true;
+            textmeshPro.enabled = true; 
         } else if (cardObject.tag == "greenKey") {
             player.hasGreenKey = true;
        
