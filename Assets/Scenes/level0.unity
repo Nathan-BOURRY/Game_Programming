@@ -9706,10 +9706,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950655975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1892baec472f5084aa3ae4c72bbe7f89, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f4fb10cad783684aabffb8da0381c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 4
   textmeshPro: {fileID: 277905776}
   shipSound: {fileID: 1950655980}
   IncomingSound: {fileID: 1901173647}

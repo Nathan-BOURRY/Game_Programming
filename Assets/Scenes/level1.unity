@@ -245,7 +245,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightDoorGreen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5713812794272201763, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
 --- !u!1001 &36759948
 PrefabInstance:
@@ -42259,7 +42260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 510014181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83581f88adeb73439c55e89a7e3f295, type: 3}
+  m_Script: {fileID: 11500000, guid: 467aeb7f1050e9e4296f624f227ec0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteCheck: {fileID: 21300000, guid: c4d806c8317c3ad4aac6889c60f79c00, type: 3}
@@ -46086,7 +46087,7 @@ Tilemap:
       - {fileID: 2098541521, guid: 1b759c80ebe1d8645be4e35df1bd812c, type: 3}
       - {fileID: -300177797, guid: 1b759c80ebe1d8645be4e35df1bd812c, type: 3}
       - {fileID: 2098541521, guid: 1b759c80ebe1d8645be4e35df1bd812c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 26, y: 44, z: 0}
@@ -46371,7 +46372,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightDoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5713812794272201763, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
 --- !u!4 &847369197 stripped
 Transform:
@@ -46858,6 +46860,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9098236392698794366, guid: b4b1c5196135e1b48a9c162a02cf3936, type: 3}
   m_PrefabInstance: {fileID: 1792385991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &967899695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5713812794272201758, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
+  m_PrefabInstance: {fileID: 25183222}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &970129801 stripped
 Transform:
@@ -50447,7 +50454,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431255820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83581f88adeb73439c55e89a7e3f295, type: 3}
+  m_Script: {fileID: 11500000, guid: 467aeb7f1050e9e4296f624f227ec0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteCheck: {fileID: 21300000, guid: c4d806c8317c3ad4aac6889c60f79c00, type: 3}
@@ -51499,6 +51506,25 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!212 &1573614135 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5713812794272201757, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
+  m_PrefabInstance: {fileID: 1870987014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1573614136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573614130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a67ff4e7751314499c0a9d8fd88e612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSprite: {fileID: 21300000, guid: 1c5cad71c3b2f8c448053a1ba36b05f6, type: 3}
+  spriteRenderer: {fileID: 1573614135}
 --- !u!1 &1588011459
 GameObject:
   m_ObjectHideFlags: 0
@@ -52753,6 +52779,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9098236392698794366, guid: b4b1c5196135e1b48a9c162a02cf3936, type: 3}
   m_PrefabInstance: {fileID: 644336876}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1757919694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5713812794272201758, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
+  m_PrefabInstance: {fileID: 847369196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1757919696 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5713812794272201757, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
+  m_PrefabInstance: {fileID: 847369196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1757919697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757919694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a67ff4e7751314499c0a9d8fd88e612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSprite: {fileID: 21300000, guid: 1c5cad71c3b2f8c448053a1ba36b05f6, type: 3}
+  spriteRenderer: {fileID: 1757919696}
 --- !u!1001 &1772286841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53272,7 +53322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1827129700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83581f88adeb73439c55e89a7e3f295, type: 3}
+  m_Script: {fileID: 11500000, guid: 467aeb7f1050e9e4296f624f227ec0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteCheck: {fileID: 21300000, guid: c4d806c8317c3ad4aac6889c60f79c00, type: 3}
@@ -53358,7 +53408,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightDoorBlue
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5713812794272201763, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
 --- !u!1001 &1877545691
 PrefabInstance:
@@ -55040,8 +55091,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 970129801}
   - {fileID: 875188396}
+  - {fileID: 970129801}
   - {fileID: 1500540351}
   - {fileID: 1424585867}
   - {fileID: 1006515045}
@@ -55469,6 +55520,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5713812794272201756, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
   m_PrefabInstance: {fileID: 25183222}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &2106473883 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5713812794272201757, guid: b71ef0b232a7df141aa6c0911cf24ff6, type: 3}
+  m_PrefabInstance: {fileID: 25183222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2106473884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967899695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a67ff4e7751314499c0a9d8fd88e612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSprite: {fileID: 21300000, guid: 1c5cad71c3b2f8c448053a1ba36b05f6, type: 3}
+  spriteRenderer: {fileID: 2106473883}
 --- !u!1001 &2107451983
 PrefabInstance:
   m_ObjectHideFlags: 0

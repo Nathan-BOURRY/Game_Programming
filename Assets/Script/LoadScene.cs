@@ -19,9 +19,9 @@ public class LoadScene : MonoBehaviour
 
     public static IEnumerator LoadLaunchScene(string sceneToLoad)
     {
-        animator.SetBool("IsLoading", true);
+        //animator.SetBool("IsLoading", true);
         yield return new WaitForSeconds(1f);
-        animator.SetBool("IsLoading", false);
+       // animator.SetBool("IsLoading", false);
         SceneManager.LoadScene(sceneToLoad);
     }
 

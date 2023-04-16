@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame()
     {
-        if (Application.isEditor)
+        /*if (Application.isEditor)
         {
             UnityEditor.EditorApplication.isPlaying = false;
         }
         else
-        {
+        {*/
             Application.Quit();
-        }
+        //}
     }
 
 }
