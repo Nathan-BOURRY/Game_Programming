@@ -14,7 +14,7 @@ public class LoadScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GameObject.Find("LoadAnimationControler").GetComponent<Animator>();
     }
 
     public static IEnumerator LoadLaunchScene(string sceneToLoad)
