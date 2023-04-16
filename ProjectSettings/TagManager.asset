@@ -17,6 +17,7 @@ TagManager:
   - terminalBlue
   - simpleDoor
   - bacta
+  - win
   layers:
   - Default
   - TransparentFX

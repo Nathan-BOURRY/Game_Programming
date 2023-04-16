@@ -13,7 +13,7 @@ public class card : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-         generated_all = FindObjectOfType<generated_all>();
+        generated_all = FindObjectOfType<generated_all>();
         
     }
 

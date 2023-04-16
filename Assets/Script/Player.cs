@@ -31,9 +31,7 @@ public class Player : MonoBehaviour
     public bool heWasUp = false;
 
     public static bool gameIsEnd = false;
-    //public GameObject endMenuUI;
 
-    // public GameManager gameManager;
     DoorAction doorAction;
 
     public AudioSource walksound;
@@ -46,8 +44,6 @@ public class Player : MonoBehaviour
     int randomValue;
     card card;
     generated_all generated_all;
-
-    public static bool DontMove;
 
     void Awake()
     {
@@ -63,100 +59,99 @@ public class Player : MonoBehaviour
         generated_all = FindObjectOfType<generated_all>();
 
         animator = GetComponent<Animator>();
-        DontMove = true;
 
     }
 
 
+    animator = GetComponent<Animator>();
+        DontMove = true;
 
     // Update is called once per frame
     void Update()
     {
 
-        if (DontMove)
+
+        velocity = movement * speed;
+
+        if (movement.x != 0)
         {
-            velocity = movement * speed;
-
-            if (movement.x != 0)
+            if (!heWasDown || !heWasUp)
             {
-                if (!heWasDown || !heWasUp)
-                {
-                    spr.flipX = movement.x < 0;
-                }
-                animator.SetBool("isDown", false);
-                animator.SetBool("isUp", false);
-                animator.SetBool("isWalkingUp", false);
-                animator.SetBool("isWalkingDown", false);
-                animator.SetBool("isWalking", true);
-                heWasDown = false;
-                heWasUp = false;
-
-
+                spr.flipX = movement.x < 0;
             }
-            if (movement.y > 0)
-            {
-                // Le joueur monte
-                // Debug.Log("Le joueur monte !");
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isWalkingDown", false);
-                animator.SetBool("isUp", true);
-                animator.SetBool("isDown", false);
-                animator.SetBool("isWalkingUp", true);
+            animator.SetBool("isDown", false);
+            animator.SetBool("isUp", false);
+            animator.SetBool("isWalkingUp", false);
+            animator.SetBool("isWalkingDown", false);
+            animator.SetBool("isWalking", true);
+            heWasDown = false;
+            heWasUp = false;
 
-                heWasDown = false;
-                heWasUp = true;
 
-            }
-            else if (movement.y < 0)
-            {
-                // Le joueur descend
-                // Debug.Log("Le joueur descend !");
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isWalkingDown", true);
-                animator.SetBool("isUp", false);
-                animator.SetBool("isDown", true);
-                animator.SetBool("isWalkingUp", false);
-
-                heWasDown = true;
-                heWasUp = false;
-            }
-
-            if (movement.y != 0 && movement.x != 0)
-            {
-                animator.SetBool("isWalking", true);
-
-                heWasDown = false;
-                heWasUp = false;
-            }
-
-            if (movement.y == 0 && movement.x == 0)
-            {
-                animator.SetBool("isWalkingDown", false);
-                animator.SetBool("isWalkingUp", false);
-
-                if (heWasDown)
-                {
-                    animator.SetBool("isDown", true);
-                    animator.SetBool("isUp", false);
-
-                }
-                else if (heWasUp)
-                {
-                    animator.SetBool("isDown", false);
-                    animator.SetBool("isUp", true);
-                    //todo
-                }
-                else
-                {
-                    animator.SetBool("isDown", false);
-                    animator.SetBool("isUp", false);
-
-                    //todo
-                }
-            }
-
-            rbody.velocity = new Vector2(velocity.x, velocity.y);
         }
+        if (movement.y > 0)
+        {
+            // Le joueur monte
+
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isWalkingDown", false);
+            animator.SetBool("isUp", true);
+            animator.SetBool("isDown", false);
+            animator.SetBool("isWalkingUp", true);
+
+            heWasDown = false;
+            heWasUp = true;
+
+        }
+        else if (movement.y < 0)
+        {
+            // Le joueur descend
+
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isWalkingDown", true);
+            animator.SetBool("isUp", false);
+            animator.SetBool("isDown", true);
+            animator.SetBool("isWalkingUp", false);
+
+            heWasDown = true;
+            heWasUp = false;
+        }
+
+        if (movement.y != 0 && movement.x != 0)
+        {
+            animator.SetBool("isWalking", true);
+
+            heWasDown = false;
+            heWasUp = false;
+        }
+
+        if (movement.y == 0 && movement.x == 0)
+        {
+            animator.SetBool("isWalkingDown", false);
+            animator.SetBool("isWalkingUp", false);
+
+            if (heWasDown)
+            {
+                animator.SetBool("isDown", true);
+                animator.SetBool("isUp", false);
+
+            }
+            else if (heWasUp)
+            {
+                animator.SetBool("isDown", false);
+                animator.SetBool("isUp", true);
+
+            }
+            else
+            {
+                animator.SetBool("isDown", false);
+                animator.SetBool("isUp", false);
+
+
+            }
+        }
+
+        rbody.velocity = new Vector2(velocity.x, velocity.y);
     }
 
 
@@ -169,7 +164,7 @@ public class Player : MonoBehaviour
         movement = val.Get<Vector2>();
         if (movement != Vector2.zero)
         {
-            //TODO Ajout de l'audio de déplacement ;)
+
             GetComponent<Weapon>().playerMovement = movement;
 
             animator.SetBool("isWalking", true);
@@ -195,7 +190,6 @@ public class Player : MonoBehaviour
     {
         if (life > 0)
         {
-            //todo : faire pour des tirs de blaster
             if (collision.gameObject.tag == "balle")
             {
                 life = life - 10;
@@ -203,7 +197,7 @@ public class Player : MonoBehaviour
                 if (life <= 0)
                 {
                     deadSound.Play();
-                    GameOver.IsGameOver = true;
+
                 }
             }
 
@@ -213,13 +207,13 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("test = " + collision.gameObject.tag);
+
         if (collision.gameObject.tag == "munition")
         {
             Destroy(collision.gameObject);
             randomValue = Random.Range(20, 151);
 
-            //todo afficher +nbbullet sur le hud
+
             if (numberOfBullet < 500)
             {
                 numberOfBullet = numberOfBullet + randomValue;
@@ -249,11 +243,7 @@ public class Player : MonoBehaviour
             if (hasRedKey)
             {
 
-                // if (Input.GetKeyDown(KeyCode.E)) {
-                //Debug.Log("test");
                 hasScanKey = true;
-
-                // }
             }
 
         }
@@ -262,11 +252,8 @@ public class Player : MonoBehaviour
             if (hasGreenKey)
             {
 
-                // if (Input.GetKeyDown(KeyCode.E)) {
-                //Debug.Log("test");
                 hasScanGreenKey = true;
 
-                //}
             }
         }
         else if (collision.gameObject.tag == "terminalBlue")
@@ -274,11 +261,8 @@ public class Player : MonoBehaviour
             if (hasBlueKey)
             {
 
-                // if (Input.GetKeyDown(KeyCode.E)) {
-                // Debug.Log("test");
                 hasScanBlueKey = true;
 
-                // }
             }
 
         }
@@ -289,10 +273,26 @@ public class Player : MonoBehaviour
             itemSound.Play();
             Destroy(collision.gameObject);
 
+            // if (Input.GetKeyDown(KeyCode.E)) {
+            //Debug.Log("test");
+            hasScanKey = true;
 
         }
+        else if (collision.gameObject.tag == "win")
+        {
 
+            StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
+        }
 
+    }
+        else if (collision.gameObject.tag == "terminalGreen")
+        {
+            if (hasGreenKey)
+            {
+
+                // if (Input.GetKeyDown(KeyCode.E)) {
+                //Debug.Log("test");
+                hasScanGreenKey = true;
 
     }
 
