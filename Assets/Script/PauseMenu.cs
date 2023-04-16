@@ -9,8 +9,14 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    void start()
+    {
+
+        DontDestroyOnLoad(GameObject.Find("PauseMenu").GetComponent<GameObject>());
+    }
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
@@ -39,4 +45,9 @@ public class PauseMenu : MonoBehaviour
     }
 
 
+    public void LoadMainMenu()
+    {
+        Resume();
+        SceneManager.LoadScene("Menu");
+    }
 }

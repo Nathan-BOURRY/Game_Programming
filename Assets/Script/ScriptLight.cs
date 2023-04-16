@@ -5,10 +5,10 @@ using UnityEngine;
 public class ScriptLight : MonoBehaviour
 {
     public UnityEngine.Rendering.Universal.Light2D light2D;
-        float startRadius = 0.1f;
-        
-       
-      
+    float startRadius = 0.1f;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +19,25 @@ public class ScriptLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
-          
-            float t = Mathf.Sin(Time.time * 0.5f * Mathf.PI);
-           light2D.pointLightOuterRadius = startRadius * (5.0f + t);
-            
 
-    
-    
+
+        float t = Mathf.Sin(Time.time * 0.5f * Mathf.PI);
+        light2D.pointLightOuterRadius = startRadius * (5.0f + t);
+
+
+
+
     }
 
-    void plusRadius (){
+    void plusRadius()
+    {
         light2D.pointLightOuterRadius = light2D.pointLightOuterRadius + 0.05f;
 
     }
 
-    void minusRadius (){
+    void minusRadius()
+    {
 
-         light2D.pointLightOuterRadius = light2D.pointLightOuterRadius - 0.05f;
+        light2D.pointLightOuterRadius = light2D.pointLightOuterRadius - 0.05f;
     }
 }
