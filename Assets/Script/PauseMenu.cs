@@ -7,13 +7,11 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
 
+
+
     public GameObject pauseMenuUI;
 
-    void start()
-    {
 
-        DontDestroyOnLoad(GameObject.Find("PauseMenu").GetComponent<GameObject>());
-    }
     void Update()
     {
 

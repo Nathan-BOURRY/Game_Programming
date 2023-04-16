@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         generated_all = FindObjectOfType<generated_all>();
 
         animator = GetComponent<Animator>();
-        DontMove = false;
+        DontMove = true;
 
     }
 
@@ -71,88 +71,90 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-
-        velocity = movement * speed;
-
-        if (movement.x != 0)
+        if (DontMove)
         {
-            if (!heWasDown || !heWasUp)
+            velocity = movement * speed;
+
+            if (movement.x != 0)
             {
-                spr.flipX = movement.x < 0;
-            }
-            animator.SetBool("isDown", false);
-            animator.SetBool("isUp", false);
-            animator.SetBool("isWalkingUp", false);
-            animator.SetBool("isWalkingDown", false);
-            animator.SetBool("isWalking", true);
-            heWasDown = false;
-            heWasUp = false;
-
-
-        }
-        if (movement.y > 0)
-        {
-            // Le joueur monte
-
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isWalkingDown", false);
-            animator.SetBool("isUp", true);
-            animator.SetBool("isDown", false);
-            animator.SetBool("isWalkingUp", true);
-
-            heWasDown = false;
-            heWasUp = true;
-
-        }
-        else if (movement.y < 0)
-        {
-            // Le joueur descend
-
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isWalkingDown", true);
-            animator.SetBool("isUp", false);
-            animator.SetBool("isDown", true);
-            animator.SetBool("isWalkingUp", false);
-
-            heWasDown = true;
-            heWasUp = false;
-        }
-
-        if (movement.y != 0 && movement.x != 0)
-        {
-            animator.SetBool("isWalking", true);
-
-            heWasDown = false;
-            heWasUp = false;
-        }
-
-        if (movement.y == 0 && movement.x == 0)
-        {
-            animator.SetBool("isWalkingDown", false);
-            animator.SetBool("isWalkingUp", false);
-
-            if (heWasDown)
-            {
-                animator.SetBool("isDown", true);
-                animator.SetBool("isUp", false);
-
-            }
-            else if (heWasUp)
-            {
+                if (!heWasDown || !heWasUp)
+                {
+                    spr.flipX = movement.x < 0;
+                }
                 animator.SetBool("isDown", false);
+                animator.SetBool("isUp", false);
+                animator.SetBool("isWalkingUp", false);
+                animator.SetBool("isWalkingDown", false);
+                animator.SetBool("isWalking", true);
+                heWasDown = false;
+                heWasUp = false;
+
+
+            }
+            if (movement.y > 0)
+            {
+                // Le joueur monte
+
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isWalkingDown", false);
                 animator.SetBool("isUp", true);
-
-            }
-            else
-            {
                 animator.SetBool("isDown", false);
-                animator.SetBool("isUp", false);
+                animator.SetBool("isWalkingUp", true);
 
+                heWasDown = false;
+                heWasUp = true;
 
             }
-        }
+            else if (movement.y < 0)
+            {
+                // Le joueur descend
 
-        rbody.velocity = new Vector2(velocity.x, velocity.y);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isWalkingDown", true);
+                animator.SetBool("isUp", false);
+                animator.SetBool("isDown", true);
+                animator.SetBool("isWalkingUp", false);
+
+                heWasDown = true;
+                heWasUp = false;
+            }
+
+            if (movement.y != 0 && movement.x != 0)
+            {
+                animator.SetBool("isWalking", true);
+
+                heWasDown = false;
+                heWasUp = false;
+            }
+
+            if (movement.y == 0 && movement.x == 0)
+            {
+                animator.SetBool("isWalkingDown", false);
+                animator.SetBool("isWalkingUp", false);
+
+                if (heWasDown)
+                {
+                    animator.SetBool("isDown", true);
+                    animator.SetBool("isUp", false);
+
+                }
+                else if (heWasUp)
+                {
+                    animator.SetBool("isDown", false);
+                    animator.SetBool("isUp", true);
+
+                }
+                else
+                {
+                    animator.SetBool("isDown", false);
+                    animator.SetBool("isUp", false);
+
+
+                }
+            }
+
+            rbody.velocity = new Vector2(velocity.x, velocity.y);
+        }
     }
 
 

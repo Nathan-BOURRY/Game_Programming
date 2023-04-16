@@ -11,8 +11,6 @@ public class Win : MonoBehaviour
     void Start()
     {
         IsWin = false;
-        DontDestroyOnLoad(transform);
-        DontDestroyOnLoad(WinUI.transform);
     }
 
     // Update is called once per frame
@@ -31,8 +29,8 @@ public class Win : MonoBehaviour
     {
         Player.DontMove = false;
         WinUI.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        
+        yield return new WaitForSeconds(4f);
+
         WinUI.SetActive(false);
         SceneManager.LoadScene("Menu");
     }

@@ -11,8 +11,6 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         IsGameOver = false;
-        DontDestroyOnLoad(transform);
-        DontDestroyOnLoad(GameOverUI.transform);
     }
 
     // Update is called once per frame
