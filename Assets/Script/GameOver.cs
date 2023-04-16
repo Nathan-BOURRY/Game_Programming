@@ -20,6 +20,7 @@ public class GameOver : MonoBehaviour
     {
         if (IsGameOver)
         {
+            Debug.Log("Game Over");
             StartCoroutine(PageGameOver());
         }
 
@@ -28,6 +29,7 @@ public class GameOver : MonoBehaviour
 
     private IEnumerator PageGameOver()
     {
+
         Player.DontMove = false;
         GameOverUI.SetActive(true);
         yield return new WaitForSeconds(2f);

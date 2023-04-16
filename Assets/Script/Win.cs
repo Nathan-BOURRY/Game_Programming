@@ -21,6 +21,7 @@ public class Win : MonoBehaviour
         if (IsWin)
         {
             StartCoroutine(PageWin());
+            IsWin = false;
         }
 
 
@@ -31,7 +32,7 @@ public class Win : MonoBehaviour
         Player.DontMove = false;
         WinUI.SetActive(true);
         yield return new WaitForSeconds(2f);
-        IsWin = false;
+        
         WinUI.SetActive(false);
         SceneManager.LoadScene("Menu");
     }

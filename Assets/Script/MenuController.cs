@@ -6,15 +6,17 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
 
-    public void StartGame()
+     public GameManager gameManager;
+    public void Start()
     {
-        StartCoroutine(LoadScene.LoadLaunchScene("level0"));// Charge la scène "Game"
+        gameManager = GameManager.instance;
     }
+    public void ChangeScene(string sceneName)
+    {
+       gameManager.ChangeScene(sceneName);
+    }   
 
-    public void OpenOptions()
-    {
-        StartCoroutine(LoadScene.LoadLaunchScene("option")); // Charge la scène "Options"
-    }
+    
 
     public void QuitGame()
     {
