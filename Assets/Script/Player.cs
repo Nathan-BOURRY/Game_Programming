@@ -266,6 +266,9 @@ else if (collision.gameObject.tag == "terminal")
     Destroy(collision.gameObject);
 
 
+} else if(collision.gameObject.tag == "win"){
+    
+    StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
 }
 
 

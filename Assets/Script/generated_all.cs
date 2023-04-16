@@ -20,6 +20,8 @@ public class generated_all : MonoBehaviour
 
         textmeshPro = GameObject.Find("noKey").GetComponent<TextMeshProUGUI>();
 
+        StartCoroutine(intro2());
+
          // Recherche l'objet qui a le script "Player" attaché
         card = FindObjectOfType<card>();
 
@@ -51,6 +53,11 @@ public class generated_all : MonoBehaviour
 
    public IEnumerator EnableTextMesh(GameObject cardObject)
     {
+
+         if (cardObject.tag == "win"){
+            textmeshPro.text ="You WIN !";
+            textmeshPro.enabled = true;
+         }else{
         
         if(cardObject.tag == "redKey") {
             player.hasRedKey = true;
@@ -71,9 +78,19 @@ public class generated_all : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         textmeshPro.enabled = false;
         Destroy(cardObject);
+         }
         
         
     
          
     }
+
+     IEnumerator intro2()
+    {
+        textmeshPro.text = "You need to found the secret plan ! GO GO GO";
+        textmeshPro.enabled = true;
+        yield return new WaitForSeconds(4.0f);
+        textmeshPro.enabled = false;
+    }
+
 }
