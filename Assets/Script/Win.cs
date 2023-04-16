@@ -1,32 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
+
+    static public bool IsWin;
+    public GameObject WinUI;
     void Start()
     {
-        IsGameOver = false;
+        IsWin = false;
         DontDestroyOnLoad(transform);
-        DontDestroyOnLoad(GameOverUI.transform);
+        DontDestroyOnLoad(WinUI.transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsGameOver)
+        if (IsWin)
         {
-            StartCoroutine(PageGameOver());
+            StartCoroutine(PageWin());
         }
 
 
     }
 
-    private IEnumerator PageGameOver()
+    private IEnumerator PageWin()
     {
         Player.DontMove = false;
-        GameOverUI.SetActive(true);
+        WinUI.SetActive(true);
         yield return new WaitForSeconds(2f);
+        IsWin = false;
+        WinUI.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
 }

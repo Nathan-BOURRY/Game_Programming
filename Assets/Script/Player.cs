@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     card card;
     generated_all generated_all;
 
+    public static bool DontMove;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -59,12 +61,11 @@ public class Player : MonoBehaviour
         generated_all = FindObjectOfType<generated_all>();
 
         animator = GetComponent<Animator>();
+        DontMove = false;
 
     }
 
 
-    animator = GetComponent<Animator>();
-        DontMove = true;
 
     // Update is called once per frame
     void Update()
@@ -197,6 +198,7 @@ public class Player : MonoBehaviour
                 if (life <= 0)
                 {
                     deadSound.Play();
+                    GameOver.IsGameOver = true;
 
                 }
             }
@@ -273,26 +275,16 @@ public class Player : MonoBehaviour
             itemSound.Play();
             Destroy(collision.gameObject);
 
-            // if (Input.GetKeyDown(KeyCode.E)) {
-            //Debug.Log("test");
-            hasScanKey = true;
 
         }
         else if (collision.gameObject.tag == "win")
         {
 
             StartCoroutine(generated_all.EnableTextMesh(collision.gameObject));
+            Win.IsWin = true;
         }
 
-    }
-        else if (collision.gameObject.tag == "terminalGreen")
-        {
-            if (hasGreenKey)
-            {
 
-                // if (Input.GetKeyDown(KeyCode.E)) {
-                //Debug.Log("test");
-                hasScanGreenKey = true;
 
     }
 

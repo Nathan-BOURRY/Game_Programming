@@ -31,6 +31,8 @@ public class GameOver : MonoBehaviour
         Player.DontMove = false;
         GameOverUI.SetActive(true);
         yield return new WaitForSeconds(2f);
+        GameOverUI.SetActive(false);
+        IsGameOver = false;
         SceneManager.LoadScene("Menu");
     }
 }
