@@ -61,7 +61,7 @@ public class Weapon : MonoBehaviour
                 player.animator.SetBool("isFire", true);
                 player.numberOfBullet = player.numberOfBullet - 1;
                 rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 90;
-
+                Debug.Log("rotation"+rotation);
                 //TODO : Fix Spawn bullet with animation
 
                 if (rotation >= 45 && rotation <= 135) // En haut
@@ -72,9 +72,9 @@ public class Weapon : MonoBehaviour
                 {
                     instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x - 1.5f, Spawn.position.y), Quaternion.Euler(0, 0, rotation));
                 }
-                else if (rotation > 225 && rotation <= 315)//En bas
+                else if (rotation < -45 && rotation >= -135)//En bas
                 {
-                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x -0.75f, Spawn.position.y + 0.5f), Quaternion.Euler(0, 0, rotation));
+                    instanBullet = Instantiate(Bullet, new Vector2(Spawn.position.x -0.75f, Spawn.position.y - 1.2f ), Quaternion.Euler(0, 0, rotation));
                 }
                 else //Droite
                 {

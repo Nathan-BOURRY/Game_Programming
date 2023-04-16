@@ -7,7 +7,7 @@ public class DoorAction : MonoBehaviour
 {
 
 Animator animator;
-int compteur=0;
+public int compteur=0;
 Player player;
 TextMeshProUGUI textmeshPro;
 
@@ -34,12 +34,24 @@ void Start()
 // Update is called once per frame
 void Update()
 {
+
+   
     hasRedKey = player.hasRedKey;
     hasScanKey = player.hasScanKey;
     hasBlueKey = player.hasBlueKey;
     hasScanBlueKey = player.hasScanBlueKey;
     hasGreenKey = player.hasGreenKey;
     hasScanGreenKey = player.hasScanGreenKey;
+
+    if(compteur == 0 && animator.GetBool("needToOpen") == true){
+        animator.SetBool("needToOpen", false);
+        if(openDoorSound.isPlaying){
+            openDoorSound.Stop();
+        }
+        closeDoorSound.Play();
+    }
+   
+                
 
     
     
@@ -51,8 +63,10 @@ void OnTriggerEnter2D(Collider2D other)
     //todo : 
     if (other.gameObject.tag == "player"  || other.gameObject.tag == "droid"  )
     {
+        
         compteur ++;
 
+        
         if(gameObject.tag == "simpleDoor"){
             if(compteur == 1){
                     
@@ -94,7 +108,7 @@ void OnTriggerEnter2D(Collider2D other)
 
                 
                 if(other.gameObject.tag == "player" ){
-                //Debug.Log("n'a pas la clé");
+               
                 textmeshPro.text ="You need the red Key !";
                 textmeshPro.enabled = true;
                 }
@@ -166,8 +180,9 @@ void OnTriggerExit2D(Collider2D other)
     {
 
         textmeshPro.enabled = false;
-
+       
         compteur --;
+        
             
 
         if(compteur == 0){
