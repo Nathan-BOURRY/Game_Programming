@@ -11,6 +11,7 @@ public int compteur=0;
 Player player;
 TextMeshProUGUI textmeshPro;
 
+
 bool hasRedKey = false;
 public bool hasScanKey = false;
 bool hasBlueKey = false;
@@ -35,21 +36,15 @@ void Start()
 void Update()
 {
 
-   
     hasRedKey = player.hasRedKey;
     hasScanKey = player.hasScanKey;
     hasBlueKey = player.hasBlueKey;
     hasScanBlueKey = player.hasScanBlueKey;
     hasGreenKey = player.hasGreenKey;
     hasScanGreenKey = player.hasScanGreenKey;
+  
 
-    if(compteur == 0 && animator.GetBool("needToOpen") == true){
-        animator.SetBool("needToOpen", false);
-        if(openDoorSound.isPlaying){
-            openDoorSound.Stop();
-        }
-        closeDoorSound.Play();
-    }
+    
    
                 
 
@@ -61,14 +56,14 @@ void OnTriggerEnter2D(Collider2D other)
 {
 
     //todo : 
-    if (other.gameObject.tag == "player"  || other.gameObject.tag == "droid"  )
+    if (other.gameObject.tag == "player"    )
     {
         
         compteur ++;
 
         
         if(gameObject.tag == "simpleDoor"){
-            if(compteur == 1){
+            if(compteur >= 1){
                     
                 animator.SetBool("needToOpen", true);
                 if(closeDoorSound.isPlaying){
@@ -86,7 +81,7 @@ void OnTriggerEnter2D(Collider2D other)
             if(hasRedKey && hasScanKey){
                 
             
-                if(compteur == 1){
+                if(compteur >= 1){
                     
                 animator.SetBool("needToOpen", true);
                 if(closeDoorSound.isPlaying){
@@ -116,7 +111,7 @@ void OnTriggerEnter2D(Collider2D other)
             }
         }else if(gameObject.tag == "greenKey"){
             if(hasGreenKey && hasScanGreenKey){
-                if(compteur == 1){
+                if(compteur >= 1){
                 animator.SetBool("needToOpen", true);
                 if(closeDoorSound.isPlaying){
                     closeDoorSound.Stop();
@@ -144,7 +139,7 @@ void OnTriggerEnter2D(Collider2D other)
 
             }else if(gameObject.tag == "blueKey"){
             if(hasBlueKey && hasScanBlueKey){
-                if(compteur == 1){
+                if(compteur >= 1){
                 animator.SetBool("needToOpen", true);
                 if(closeDoorSound.isPlaying){
                     closeDoorSound.Stop();
@@ -176,7 +171,7 @@ void OnTriggerEnter2D(Collider2D other)
 void OnTriggerExit2D(Collider2D other)
 {
     //todo : 
-    if (other.gameObject.tag == "player" || other.gameObject.tag == "droid")
+    if (other.gameObject.tag == "player" )
     {
 
         textmeshPro.enabled = false;
@@ -191,9 +186,10 @@ void OnTriggerExit2D(Collider2D other)
             
                 if(openDoorSound.isPlaying){
                     openDoorSound.Stop();
-                    closeDoorSound.Play();
+                  
                     
                 }   
+                closeDoorSound.Play();
                 }
             
                 
@@ -201,26 +197,29 @@ void OnTriggerExit2D(Collider2D other)
             if(hasScanKey){
                 if(openDoorSound.isPlaying){
                     openDoorSound.Stop();
-                    closeDoorSound.Play();
+                    
                     
                 }
+                closeDoorSound.Play();
             }
             
         } else if (gameObject.tag == "greenKey"){
             if(hasScanGreenKey){
                 if(openDoorSound.isPlaying){
                     openDoorSound.Stop();
-                    closeDoorSound.Play();
+                   
                     
                 }
+                closeDoorSound.Play();
             }
         } else if (gameObject.tag == "blueKey"){
             if(hasScanBlueKey){
                 if(openDoorSound.isPlaying){
                     openDoorSound.Stop();
-                    closeDoorSound.Play();
+                    
                     
                 }
+                closeDoorSound.Play();
             }
         }
         }

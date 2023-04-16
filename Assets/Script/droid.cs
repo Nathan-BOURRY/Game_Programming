@@ -14,7 +14,7 @@ public AudioSource rogerSound;
 public GameObject Player;
 public GameObject Bullet;
 float rotation;
-GameObject lastCollisionDoor=null;
+
 bool readyShoot;
 public AudioSource fireSound;
 public AudioSource destroySound;
@@ -141,27 +141,13 @@ void OnCollisionEnter2D(Collision2D collision)
         if(!destroySound.isPlaying){
         destroySound.Play();
         }
-        if(lastCollisionDoor.GetComponent<DoorAction>().compteur > 0){
-           lastCollisionDoor.GetComponent<DoorAction>().compteur = lastCollisionDoor.GetComponent<DoorAction>().compteur - 1;
-            Debug.Log("test du compteur 2 = "+lastCollisionDoor.GetComponent<DoorAction>().compteur);
-
         
-        }
         
         Destroy(gameObject, 1.4f);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-       
-        if (collision.gameObject.tag == "simpleDoor" || collision.gameObject.name == "porteHaut_0"|| collision.gameObject.name == "porteBlueKey"|| collision.gameObject.name == "porteGreenKey")
-            {
-                lastCollisionDoor = collision.gameObject;
-                //Debug.Log("test compteur = "+lastCollisionDoor.GetComponent<DoorAction>().compteur);
-            }
-        
-    }
+   
 
 IEnumerator CouldownWeapon(float temps)
 {
