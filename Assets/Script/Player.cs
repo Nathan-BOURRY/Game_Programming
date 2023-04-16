@@ -40,7 +40,7 @@ public AudioSource walksound;
 public AudioSource itemSound;
 public AudioSource BactaSound;
 
-public AudioSource audio;
+public AudioSource ammoSound;
 public AudioSource takeAShot;
 public AudioSource deadSound;
 int randomValue;
@@ -211,7 +211,7 @@ if (collision.gameObject.tag == "munition")
             numberOfBullet = 500;
         }
     }
-    audio.Play();
+    ammoSound.Play();
 } else  if (collision.gameObject.tag == "bacta" && life != 100)
         {
             if (life >= 50)

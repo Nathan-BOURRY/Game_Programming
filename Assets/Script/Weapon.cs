@@ -8,8 +8,8 @@ public class Weapon : MonoBehaviour
 {
     public GameObject Bullet;
     public Transform Spawn;
-    public AudioSource audio;
-    public AudioSource audio2;
+    public AudioSource tirSound;
+    public AudioSource emptySound;
     int nbBullet;
     Player player;
 
@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
     {
         if (player.numberOfBullet > 0)
             {
-                audio.Play();
+                tirSound.Play();
                 player.animator.SetBool("isFire", true);
                 player.numberOfBullet = player.numberOfBullet - 1;
                 rotation = Mathf.Rad2Deg * Mathf.Atan2(-playerMovement.x, playerMovement.y) + 90;
@@ -87,8 +87,8 @@ public class Weapon : MonoBehaviour
             {
                 //todo : text no bullet to show on hud
                 //Debug.Log("plus de balle");
-                if(audio2.isPlaying == false){
-                    audio2.Play();
+                if(emptySound.isPlaying == false){
+                    emptySound.Play();
                 }
             }
     }

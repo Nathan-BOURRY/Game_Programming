@@ -10,7 +10,7 @@ Animator animator;
 int compteur=0;
 Player player;
 TextMeshProUGUI textmeshPro;
-private float timer = 5f;
+
 bool hasRedKey = false;
 public bool hasScanKey = false;
 bool hasBlueKey = false;
@@ -49,7 +49,7 @@ void OnTriggerEnter2D(Collider2D other)
 {
 
     //todo : 
-    if (other.gameObject.tag == "player")
+    if (other.gameObject.tag == "player"  || other.gameObject.tag == "droid"  )
     {
         compteur ++;
 
@@ -85,16 +85,19 @@ void OnTriggerEnter2D(Collider2D other)
                 }
             } else if (hasRedKey){
 
+                if(other.gameObject.tag == "player" ){
                 textmeshPro.text ="Scan the red key on the terminal !";
                 textmeshPro.enabled = true;
+                }
 
             } else {
 
                 
-            
+                if(other.gameObject.tag == "player" ){
                 //Debug.Log("n'a pas la clé");
                 textmeshPro.text ="You need the red Key !";
                 textmeshPro.enabled = true;
+                }
 
             }
         }else if(gameObject.tag == "greenKey"){
@@ -109,14 +112,19 @@ void OnTriggerEnter2D(Collider2D other)
                 }
             } else if (hasGreenKey){
 
+                if(other.gameObject.tag == "player" ){
+
                 textmeshPro.text ="Scan the green key on the terminal !";
                 textmeshPro.enabled = true;
+                }
 
             } else {
 
                 //Debug.Log("n'a pas la clé");
+                if(other.gameObject.tag == "player" ){
                 textmeshPro.text ="You need the green Key !";
                 textmeshPro.enabled = true;
+                }
 
             }
 
@@ -132,31 +140,23 @@ void OnTriggerEnter2D(Collider2D other)
                 }
             } else if (hasBlueKey){
 
+                if(other.gameObject.tag == "player" ){
+
                 textmeshPro.text ="Scan the blue key on the terminal !";
                 textmeshPro.enabled = true;
+                }
 
             } else {
-
+                if(other.gameObject.tag == "player" ){
                 //Debug.Log("n'a pas la clé");
                 textmeshPro.text ="You need the blue Key !";
                 textmeshPro.enabled = true;
+                }
 
             }
             }
             
-    } else if (other.gameObject.tag == "droid"){
-            
-            compteur ++;
-            if(compteur == 1){
-            animator.SetBool("needToOpen", true);
-            if(closeDoorSound.isPlaying){
-                    closeDoorSound.Stop();
-                    
-                }
-                openDoorSound.Play();
-            
-            }
-    }
+    } 
 }
 
 void OnTriggerExit2D(Collider2D other)
